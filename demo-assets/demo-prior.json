@@ -1,0 +1,1828 @@
+[
+  {
+    "text": "Section A: Employee Information and Authorization (to be completed by Employee/Associate)",
+    "page_idx": 0,
+    "bbox": [
+      35.9,
+      155.4,
+      958.8,
+      177.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "First Name: Steven",
+    "page_idx": 0,
+    "bbox": [
+      35.9,
+      177.4,
+      428.6,
+      208.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Last Name: Zhang Kangyang",
+    "page_idx": 0,
+    "bbox": [
+      428.6,
+      177.4,
+      648.6,
+      208.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date of birth: MM|DDĮYYYY 01\\01\\1995",
+    "page_idx": 0,
+    "bbox": [
+      648.6,
+      177.4,
+      958.8,
+      208.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Address: 789 Willow Creek Drive, Apt 4B, Toronto, ON M4C 1Z5",
+    "page_idx": 0,
+    "bbox": [
+      35.9,
+      207.5,
+      958.8,
+      232.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Phone Number: 416-555-0987",
+    "page_idx": 0,
+    "bbox": [
+      34.9,
+      231.0,
+      428.6,
+      253.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Personal Email: m.johnson95@email.com",
+    "page_idx": 0,
+    "bbox": [
+      428.6,
+      232.4,
+      958.8,
+      253.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Employer Name: National Logistics Co.",
+    "page_idx": 0,
+    "bbox": [
+      34.9,
+      252.3,
+      428.6,
+      277.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Employer Location/Division: Warehouse Facility B",
+    "page_idx": 0,
+    "bbox": [
+      428.6,
+      253.7,
+      958.8,
+      277.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Job Title: Warehouse Associate",
+    "page_idx": 0,
+    "bbox": [
+      34.9,
+      277.2,
+      428.6,
+      317.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Are you currently employed in any capacity? Yes :unselected:\n:selected:\nNo\n✔ If yes, explain:",
+    "page_idx": 0,
+    "bbox": [
+      428.6,
+      277.2,
+      957.9,
+      317.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Employee's Signature: X :selected: Steven Zhang Kangyang",
+    "page_idx": 0,
+    "bbox": [
+      34.3,
+      508.7,
+      450.6,
+      556.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date (MM/DD/YYYY) 05/03/2024",
+    "page_idx": 0,
+    "bbox": [
+      636.9,
+      508.7,
+      958.2,
+      557.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Section B: Attending Physician/Nurse Practitioner/Specialist Note: If you feel your patient can participate in a modified or gradual return to work, please complete all Sections. Otherwise, please complete Section B and D.",
+    "page_idx": 0,
+    "bbox": [
+      34.3,
+      556.5,
+      958.2,
+      620.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Please identify the general nature of the illness or injury: Acute Viral Myocarditis (Inflammation of the heart muscle resulting in reduced cardiac output and arrhythmias).",
+    "page_idx": 0,
+    "bbox": [
+      34.3,
+      619.7,
+      958.2,
+      657.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Is the length of absence within the normal convalescent period (NCP) for this type of illness or injury? Yes :unselected:\n:selected:\nNo\n✔",
+    "page_idx": 0,
+    "bbox": [
+      34.3,
+      657.2,
+      958.2,
+      682.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "If the length of absence is beyond the NCP, are there other medically supported, complicating factors affecting your patient's recovery? Yes :unselected:\n:unselected:\nNo",
+    "page_idx": 0,
+    "bbox": [
+      34.3,
+      682.2,
+      958.2,
+      726.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Symptoms began or accident happened on: 05|02|2024 MMĮDD|YYYY",
+    "page_idx": 0,
+    "bbox": [
+      33.3,
+      726.3,
+      448.7,
+      761.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date of first visit for this condition: 05/03/202",
+    "page_idx": 0,
+    "bbox": [
+      448.7,
+      726.3,
+      958.2,
+      744.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "MMĮDD|YYYY",
+    "page_idx": 0,
+    "bbox": [
+      636.9,
+      744.7,
+      958.2,
+      761.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date of most recent examination: 05/14/2024",
+    "page_idx": 0,
+    "bbox": [
+      33.3,
+      761.6,
+      448.7,
+      781.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date of next scheduled visit: 0611012024",
+    "page_idx": 0,
+    "bbox": [
+      448.7,
+      761.6,
+      958.2,
+      780.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "MM|DD|YYYY",
+    "page_idx": 0,
+    "bbox": [
+      33.3,
+      780.7,
+      448.7,
+      798.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "MM|DDJYYYY",
+    "page_idx": 0,
+    "bbox": [
+      448.7,
+      780.7,
+      958.2,
+      798.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date first unable to work: 051031202 MM|DDJYYYY",
+    "page_idx": 0,
+    "bbox": [
+      33.3,
+      798.3,
+      958.2,
+      828.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "SYMPTOMS/OBJECTIVE FINDINGS Did you undertake an objective medical assessment that supports the illness/injury? Yes :unselected:\n:selected:\n:unselected:\n:unselected:\nNo\n✔ Is your patient capable of working at his/her own occupation, meaning is he/she able to perform the regular duties pertaining to his/her occupation? Yes\nNo",
+    "page_idx": 0,
+    "bbox": [
+      33.3,
+      827.7,
+      958.2,
+      914.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Please Check all that apply :selected:",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      375.4,
+      301.6,
+      405.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Restricted",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      375.4,
+      394.0,
+      406.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Not Restricted",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      375.4,
+      497.9,
+      406.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "If restricted, outline specific limitations and duration (temporary/permanent)",
+    "page_idx": 1,
+    "bbox": [
+      497.9,
+      375.4,
+      961.1,
+      406.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "PHYSICAL:",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      405.6,
+      301.6,
+      421.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Sitting",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      421.0,
+      301.6,
+      436.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      421.0,
+      394.0,
+      436.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      421.0,
+      497.9,
+      436.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Standing",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      436.5,
+      301.6,
+      452.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      436.5,
+      394.0,
+      452.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      436.5,
+      497.9,
+      452.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Max 15 minutes continuously.",
+    "page_idx": 1,
+    "bbox": [
+      497.9,
+      436.5,
+      961.1,
+      453.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Walking",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      452.7,
+      301.6,
+      468.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      452.7,
+      394.0,
+      468.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      452.7,
+      497.9,
+      468.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Short distances only, flat surfaces. No brisk walking.",
+    "page_idx": 1,
+    "bbox": [
+      497.9,
+      452.7,
+      961.1,
+      468.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Kneeling/crouching/squatting",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      468.2,
+      301.6,
+      484.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      468.9,
+      394.0,
+      484.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      468.9,
+      497.9,
+      484.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Avoid (changes in blood pressure).",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      468.9,
+      961.1,
+      484.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Bending/twisting",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      483.6,
+      301.6,
+      499.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      484.4,
+      394.0,
+      499.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      484.4,
+      496.9,
+      499.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Climbing stairs/ladders",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      499.8,
+      301.6,
+      516.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      499.8,
+      394.0,
+      516.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      499.8,
+      496.9,
+      516.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Strictly avoid.",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      499.8,
+      961.1,
+      516.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Push/pull",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      515.3,
+      301.6,
+      530.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      516.0,
+      394.0,
+      530.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      516.0,
+      496.9,
+      530.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "5 kg",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      516.0,
+      961.1,
+      530.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Two-handed carrying",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      530.8,
+      301.6,
+      546.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      530.8,
+      394.0,
+      546.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      530.8,
+      496.9,
+      546.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "5 kg",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      530.8,
+      961.1,
+      547.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "One-handed carrying",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      546.2,
+      301.6,
+      563.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      546.2,
+      394.0,
+      563.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      546.2,
+      496.9,
+      563.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Reaching forward",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      561.7,
+      301.6,
+      577.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      563.2,
+      394.0,
+      577.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      563.2,
+      496.9,
+      577.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Reaching overhead",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      577.9,
+      301.6,
+      593.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      577.9,
+      394.0,
+      593.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      577.9,
+      496.9,
+      593.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Gripping/grasping",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      593.4,
+      301.6,
+      609.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      593.4,
+      394.0,
+      609.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      593.4,
+      496.9,
+      609.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Lifting floor to waist",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      609.6,
+      301.6,
+      628.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      609.6,
+      394.0,
+      628.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      609.6,
+      496.9,
+      628.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "5 kg Max lb/kg",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      609.6,
+      961.1,
+      628.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Lifting waist to shoulder",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      628.0,
+      301.6,
+      647.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      628.0,
+      394.0,
+      647.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      628.0,
+      496.9,
+      648.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "5 kg Max lb/kg",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      628.0,
+      961.1,
+      648.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Lifting above shoulder",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      647.2,
+      301.6,
+      667.1
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      647.9,
+      394.0,
+      667.1
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      647.9,
+      496.9,
+      667.1
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "5 kg Max lb/kg",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      648.6,
+      961.1,
+      667.1
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "COGNITIVE:",
+    "page_idx": 1,
+    "bbox": [
+      35.7,
+      667.1,
+      301.6,
+      682.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Concentration/attention",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      682.5,
+      301.6,
+      698.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      682.5,
+      394.0,
+      698.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      682.5,
+      496.9,
+      698.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Cardiac medications and poor circulation may cause brain fog or severe fatigue during long shifts.",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      682.5,
+      961.1,
+      698.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Memory",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      698.0,
+      301.6,
+      714.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      698.0,
+      394.0,
+      714.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      698.7,
+      496.9,
+      714.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Multi-tasking",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      714.2,
+      301.6,
+      729.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      714.2,
+      394.0,
+      729.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      714.2,
+      496.9,
+      729.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Planning/Problem solving",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      729.7,
+      301.6,
+      745.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      729.7,
+      394.0,
+      746.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      729.7,
+      496.9,
+      746.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Decision Making/judgment",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      745.9,
+      301.6,
+      761.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      745.9,
+      394.0,
+      761.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      746.6,
+      496.9,
+      761.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Communication",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      761.3,
+      301.6,
+      776.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      761.3,
+      394.0,
+      776.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      761.3,
+      496.9,
+      776.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Interaction with public",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      776.8,
+      301.6,
+      792.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      776.8,
+      394.0,
+      792.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      776.8,
+      496.9,
+      792.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Cooperation with co-workers",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      792.3,
+      301.6,
+      808.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      792.3,
+      394.0,
+      809.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      792.3,
+      496.9,
+      809.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Conflict resolution",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      808.5,
+      301.6,
+      823.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      808.5,
+      394.0,
+      823.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      809.2,
+      496.9,
+      823.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Emotional regulation",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      823.9,
+      301.6,
+      839.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      823.9,
+      394.0,
+      839.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      823.9,
+      496.9,
+      839.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Motivation/energy levels",
+    "page_idx": 1,
+    "bbox": [
+      34.7,
+      839.4,
+      301.6,
+      856.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 1,
+    "bbox": [
+      301.6,
+      839.4,
+      394.0,
+      856.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:",
+    "page_idx": 1,
+    "bbox": [
+      394.0,
+      839.4,
+      496.9,
+      856.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Energy levels are severely depleted due to compromised cardiac output.",
+    "page_idx": 1,
+    "bbox": [
+      496.9,
+      839.4,
+      961.1,
+      856.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Name: Dr. Emily Chen (Cardiologist)",
+    "page_idx": 2,
+    "bbox": [
+      36.3,
+      241.3,
+      523.7,
+      265.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "License No. MD-884920",
+    "page_idx": 2,
+    "bbox": [
+      522.7,
+      241.3,
+      961.4,
+      265.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Telephone: 416-555-1122",
+    "page_idx": 2,
+    "bbox": [
+      36.3,
+      265.0,
+      523.7,
+      293.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Fax: 416-555-1123",
+    "page_idx": 2,
+    "bbox": [
+      523.7,
+      265.0,
+      962.4,
+      293.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Physician's Signature: X Emily Chen :selected:",
+    "page_idx": 2,
+    "bbox": [
+      36.3,
+      293.0,
+      523.7,
+      341.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Date: 08/03/2004",
+    "page_idx": 2,
+    "bbox": [
+      523.7,
+      293.0,
+      962.4,
+      340.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Cowan",
+    "page_idx": 0,
+    "bbox": [
+      75.6,
+      31.2,
+      201.2,
+      54.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "CANADA",
+    "page_idx": 0,
+    "bbox": [
+      846.6,
+      30.3,
+      854.2,
+      54.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "BEST MANAGED COMPANIES",
+    "page_idx": 0,
+    "bbox": [
+      853.6,
+      29.3,
+      919.4,
+      55.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Platinum member",
+    "page_idx": 0,
+    "bbox": [
+      932.7,
+      35.4,
+      964.6,
+      49.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Attending Physician's Statement (APS) - GHC",
+    "page_idx": 0,
+    "bbox": [
+      23.0,
+      89.0,
+      505.9,
+      109.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "This information will be used to assess your patient's claim for disability benefits. Please complete the form and send it to the confidential email or fax, attention of Cowan Benefits Ltd., Return to Health® Email: rthclient.service@cowangroup.ca Fax: 1-866-508-4111",
+    "page_idx": 0,
+    "bbox": [
+      42.7,
+      127.1,
+      934.8,
+      156.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Employee consent (to be completed by the employee):",
+    "page_idx": 0,
+    "bbox": [
+      35.5,
+      328.0,
+      450.2,
+      343.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "The information on this form is being collected by Cowan Benefits Ltd. (Cowan) benefits under the plan and for facilitating my early and safe return to work including accommodation as may be required by statute. I authorize my treating medically qualified health care professional identified in Section D to provide Cowan with the following information relative to my claim. I also authorize Cowan to collect, use and disclose my personal and health information to a third-party claim administrator, insurer, for the purpose of facilitating the transition of my claim to a short-term disability and/or long-term disability plan. Medical information will be kept confidential by Cowan and will only be provided to my employer as permitted or required by law. It is understood that my employer will be notified concerning my eligibility for benefits and will be provided with information relevant to my return to work and accommodation. I agree that this authorization is valid throughout the duration of my claim including the resolution of an appeal review. I agree that a photocopy of this authorization or electronic version is valid as the original. I consent and agree that if I choose to provide this form electronically, I understand that by typing my name in the signature box I am signing this form, which has the same effect as if I had provided a handwritten signature.",
+    "page_idx": 0,
+    "bbox": [
+      34.4,
+      343.4,
+      963.9,
+      495.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Revised_February 2025",
+    "page_idx": 0,
+    "bbox": [
+      38.6,
+      945.1,
+      182.9,
+      958.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Page 1 of 3",
+    "page_idx": 0,
+    "bbox": [
+      881.3,
+      944.4,
+      941.4,
+      954.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Employee Name: Steven Zhang Kangyang",
+    "page_idx": 1,
+    "bbox": [
+      56.3,
+      29.7,
+      320.1,
+      70.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Employer:",
+    "page_idx": 1,
+    "bbox": [
+      569.7,
+      47.9,
+      646.6,
+      61.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "National Logistics Co.",
+    "page_idx": 1,
+    "bbox": [
+      684.0,
+      37.3,
+      874.3,
+      54.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "TREATMENT",
+    "page_idx": 1,
+    "bbox": [
+      41.8,
+      63.6,
+      129.7,
+      75.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Is the illness treatable? Yes :selected:",
+    "page_idx": 1,
+    "bbox": [
+      42.0,
+      73.4,
+      250.4,
+      96.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "✔ :unselected: No",
+    "page_idx": 1,
+    "bbox": [
+      233.7,
+      73.8,
+      305.8,
+      91.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Is your patient participating in and compliant with treatment? Yes :selected:",
+    "page_idx": 1,
+    "bbox": [
+      40.8,
+      88.9,
+      495.5,
+      112.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": ":unselected: Unknown If 'NO', why not?",
+    "page_idx": 1,
+    "bbox": [
+      39.8,
+      87.7,
+      648.8,
+      126.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "✔ :unselected: No",
+    "page_idx": 1,
+    "bbox": [
+      478.6,
+      88.7,
+      548.9,
+      106.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PROGNOSIS",
+    "page_idx": 1,
+    "bbox": [
+      41.9,
+      152.9,
+      128.1,
+      165.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Estimated date of return to full-time, full duties at work:",
+    "page_idx": 1,
+    "bbox": [
+      42.0,
+      167.8,
+      404.0,
+      181.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "08|15|2024",
+    "page_idx": 1,
+    "bbox": [
+      409.8,
+      160.0,
+      484.8,
+      171.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "MM|DD|YYYY",
+    "page_idx": 1,
+    "bbox": [
+      449.3,
+      182.1,
+      509.0,
+      192.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "How does the illness/injury impact work?",
+    "page_idx": 1,
+    "bbox": [
+      40.9,
+      193.9,
+      307.1,
+      208.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Patient experiences severe shortness of breath, fatigue, and chest pain upon physical exertion. Heart rate spikes dangerously with minimal physical strain.",
+    "page_idx": 1,
+    "bbox": [
+      311.2,
+      205.2,
+      870.9,
+      214.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "How would working impact the employee's recovery? Physical exertion at this stage could induce severe cardiac arrhythmias, permanent heart muscle damage, or sudden cardiac arrest. Strict rest is required.",
+    "page_idx": 1,
+    "bbox": [
+      41.1,
+      229.6,
+      838.5,
+      244.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "With modifications would the employee be able to return to work at an earlier date? Yes :selected: ✔ :unselected: No If yes, provide estimated date: 0710112024",
+    "page_idx": 1,
+    "bbox": [
+      41.1,
+      256.9,
+      701.1,
+      293.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Section C: ACCOMMODATION - Please complete if you feel your patient can participate in modified or gradual work. This information will be compared to the required job duties in an effort to assist with a modified and/or gradual return to work.",
+    "page_idx": 1,
+    "bbox": [
+      41.9,
+      307.1,
+      898.4,
+      357.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Revised_February 2025",
+    "page_idx": 1,
+    "bbox": [
+      35.2,
+      943.3,
+      179.6,
+      956.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Page 2 of 3",
+    "page_idx": 1,
+    "bbox": [
+      858.5,
+      943.2,
+      932.6,
+      956.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Employee Name:",
+    "page_idx": 2,
+    "bbox": [
+      57.7,
+      48.3,
+      186.9,
+      61.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Steven Zhang Kangyang",
+    "page_idx": 2,
+    "bbox": [
+      193.5,
+      38.0,
+      318.6,
+      53.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Employer:",
+    "page_idx": 2,
+    "bbox": [
+      569.7,
+      48.2,
+      646.8,
+      61.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "National Logistics Co.",
+    "page_idx": 2,
+    "bbox": [
+      683.9,
+      37.5,
+      874.2,
+      54.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "RETURN TO WORK PLAN - Please provide any additional return to work recommendations, including the duration of the program. Upon clearance for modified duties (estimated July 1), patient must be restricted to a 100% sedentary role (desk work only). No access to the warehouse floor due to the risk of exertion and emergency evacuation hazards. Begin with 4-hour shifts, 3 days a week. Patient must have immediate access to seating and permission to rest if experiencing palpitations or dizziness. No lifting over 5 kg. Reassessment required before advancing to 8-hour shifts.",
+    "page_idx": 2,
+    "bbox": [
+      41.4,
+      67.2,
+      893.9,
+      150.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Section D: Attending Physician/Specialist",
+    "page_idx": 2,
+    "bbox": [
+      43.6,
+      221.1,
+      388.4,
+      236.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "The completed form may be securely faxed, e-mailed or mailed to the following address: Cowan Benefits Ltd., Return to Health ® 225 King George Road, Brantford ON, N3R 7N7 Email: rthclient.service@cowangroup.ca Fax: 1-866-508-4111",
+    "page_idx": 2,
+    "bbox": [
+      218.8,
+      391.3,
+      787.9,
+      466.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Revised_February 2025",
+    "page_idx": 2,
+    "bbox": [
+      87.7,
+      943.4,
+      232.3,
+      956.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Page 3 of 3",
+    "page_idx": 2,
+    "bbox": [
+      793.3,
+      943.2,
+      867.4,
+      956.7
+    ],
+    "type": "paragraph"
+  }
+]

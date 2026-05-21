@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:opendatalab.github.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:medium.com)",
+      "Bash(pip3 show *)",
+      "Bash(chmod +x /Users/swgj/Documents/Code/python_project/highlight_rag/run.sh)",
+      "WebFetch(domain:mineru.net)",
+      "Bash(curl -s \"https://api.github.com/repos/LeoLin990405/mineru-skill/contents\")"
+    ]
+  }
+}

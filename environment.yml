@@ -1,0 +1,17 @@
+name: highlight-rag
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    - fastapi>=0.110.0
+    - "uvicorn[standard]>=0.27.0"
+    - python-multipart>=0.0.9
+    - PyMuPDF>=1.23.0
+    - rank-bm25>=0.2.2
+    - jieba>=0.42.1
+    - python-dotenv>=1.0.0
+    - azure-ai-documentintelligence>=1.0.0
+    - requests>=2.31.0

@@ -1,0 +1,11 @@
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+include = ["backend"]
+exclude = [".venv"]
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+include = ["backend"]
+exclude = [".venv"]

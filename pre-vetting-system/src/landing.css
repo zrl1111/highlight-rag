@@ -1,0 +1,68 @@
+/* Landing-only tokens — prefixed to avoid clashing with app index.css */
+@theme {
+  --font-lp-headline: "Noto Serif", ui-serif, Georgia, serif;
+  --font-lp-display: "Noto Serif", ui-serif, Georgia, serif;
+  --font-lp-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-lp-label: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-lp-brand: #094cb2;
+  --color-lp-brand-container: #3366cc;
+  --color-lp-on-brand: #ffffff;
+  --color-lp-on-brand-container: #e7ebff;
+  --color-lp-brand-fixed: #d9e2ff;
+  --color-lp-brand-fixed-dim: #b1c5ff;
+
+  --color-lp-background: #faf9fa;
+  --color-lp-on-background: #1b1c1d;
+  --color-lp-surface: #faf9fa;
+  --color-lp-surface-bright: #faf9fa;
+  --color-lp-surface-dim: #dbdadb;
+  --color-lp-surface-variant: #e3e2e3;
+  --color-lp-surface-container: #efedee;
+  --color-lp-surface-container-low: #f5f3f4;
+  --color-lp-surface-container-lowest: #ffffff;
+  --color-lp-surface-container-high: #e9e8e9;
+  --color-lp-surface-container-highest: #e3e2e3;
+
+  --color-lp-on-surface: #1b1c1d;
+  --color-lp-on-surface-variant: #434653;
+  --color-lp-inverse-on-surface: #f2f0f1;
+  --color-lp-inverse-surface: #303031;
+
+  --color-lp-tertiary: #6d5e00;
+  --color-lp-on-tertiary: #ffffff;
+  --color-lp-tertiary-fixed: #f9e37a;
+  --color-lp-on-tertiary-fixed: #211b00;
+  --color-lp-tertiary-container: #bfab49;
+
+  --color-lp-secondary: #5a5f63;
+  --color-lp-secondary-fixed: #dfe3e8;
+  --color-lp-on-secondary-fixed: #171c20;
+
+  --color-lp-outline-variant: #c3c6d5;
+}
+
+.landing-root .glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.landing-root .ghost-border {
+  border: 1px solid rgba(195, 198, 213, 0.15);
+}
+
+.landing-root .material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}

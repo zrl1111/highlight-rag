@@ -1,0 +1,6 @@
+{
+  "name": "AuditVantage - Application Pre-vetting System",
+  "description": "Automated intake, risk assessment, and fraud detection system for government and insurance sectors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI-powered document scanning", "Risk scoring", "Audit logging"]
+}
