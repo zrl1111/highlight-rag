@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Shield, 
   LayoutDashboard, 
@@ -27,12 +27,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Applicant, AuditLog } from './types';
 import { IntakeWorkspace } from './components/IntakeWorkspace';
 import { BackgroundScreeningPanel } from './components/BackgroundScreeningPanel';
-import {
-  analyzeApplicantRisk,
-  listIndexedFilenames,
-  queryDocument,
-  type RagHit,
-} from './lib/highlightApi';
+import { analyzeApplicantRisk } from './lib/highlightApi';
 
 // Mock Data
 const MOCK_APPLICANTS: Applicant[] = [
@@ -497,36 +492,44 @@ function KPIItem({ title, value, trend, color = 'text-on-surface', border = '', 
   );
 }
 
+type EntityStatusFilter = 'ALL' | Applicant['status'];
+
+function filterEntities(
+  apps: Applicant[],
+  q: string,
+  statusFilter: EntityStatusFilter,
+): Applicant[] {
+  const needle = q.trim().toLowerCase();
+  return apps.filter((a) => {
+    if (statusFilter !== 'ALL' && a.status !== statusFilter) return false;
+    if (!needle) return true;
+    return (
+      a.name.toLowerCase().includes(needle) ||
+      a.id.toLowerCase().includes(needle) ||
+      a.documentType.toLowerCase().includes(needle)
+    );
+  });
+}
+
 function ManagementView({ key }: { key?: React.Key }) {
-  const [filenames, setFilenames] = useState<string[]>([]);
-  const [selectedFile, setSelectedFile] = useState('');
   const [query, setQuery] = useState('');
+  const [statusFilter, setStatusFilter] = useState<EntityStatusFilter>('ALL');
   const [loading, setLoading] = useState(false);
-  const [hits, setHits] = useState<RagHit[]>([]);
-  const [err, setErr] = useState<string | null>(null);
+  const [results, setResults] = useState<Applicant[]>(MOCK_APPLICANTS);
+  const [selectedEntity, setSelectedEntity] = useState<Applicant | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
 
-  useEffect(() => {
-    void listIndexedFilenames().then((names) => {
-      setFilenames(names);
-      setSelectedFile((prev) => (prev && names.includes(prev) ? prev : names[0] ?? ''));
-    });
-  }, []);
-
-  const runSearch = async () => {
-    const q = query.trim();
-    if (!q || !selectedFile) return;
+  const runSearch = () => {
     setLoading(true);
-    setErr(null);
-    try {
-      const results = await queryDocument(selectedFile, q, 8);
-      setHits(results);
-    } catch (e) {
-      setHits([]);
-      setErr(e instanceof Error ? e.message : 'Search failed');
-    } finally {
+    setHasSearched(true);
+    window.setTimeout(() => {
+      setResults(filterEntities(MOCK_APPLICANTS, query, statusFilter));
       setLoading(false);
-    }
+    }, 200);
   };
+
+  const showingAll =
+    !hasSearched && !query.trim() && statusFilter === 'ALL';
 
   return (
     <motion.div 
@@ -537,7 +540,9 @@ function ManagementView({ key }: { key?: React.Key }) {
       <div className="flex justify-between items-end">
         <div>
           <h3 className="text-xl font-bold text-on-surface">Entity Database</h3>
-          <p className="text-sm text-on-surface-variant mt-1">Cross-reference mock KPIs below; document BM25 search uses the same highlight_rag backend as Intake.</p>
+          <p className="text-sm text-on-surface-variant mt-1">
+            Search the departmental entity registry (demo data).
+          </p>
         </div>
         <button type="button" className="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary font-bold text-[10px] rounded hover:opacity-90 transition-colors uppercase tracking-widest">
           <Plus size={14} /> REGISTER NEW ENTITY
@@ -577,39 +582,41 @@ function ManagementView({ key }: { key?: React.Key }) {
               <Search className="text-outline" size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-on-surface">Indexed document search (BM25)</h4>
-              <p className="text-xs text-on-surface-variant mt-0.5">Run <code className="rounded bg-surface-container px-1">POST /api/query</code> on PDFs already uploaded to the backend.</p>
+              <h4 className="text-sm font-bold text-on-surface">Entity registry search</h4>
+              <p className="text-xs text-on-surface-variant mt-0.5">
+                Search by name, entity ID, or record type across registered applicants.
+              </p>
             </div>
          </div>
          <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
             <label className="flex flex-col gap-1 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-              PDF on server
+              Risk status
               <select
-                value={selectedFile}
-                onChange={(e) => setSelectedFile(e.target.value)}
-                className="mt-1 rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 text-sm text-on-surface min-w-[200px]"
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value as EntityStatusFilter)}
+                className="mt-1 rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 text-sm text-on-surface min-w-[140px]"
               >
-                {filenames.length === 0 && <option value="">No indexed PDFs — upload via Document Intake</option>}
-                {filenames.map((f) => (
-                  <option key={f} value={f}>{f}</option>
-                ))}
+                <option value="ALL">All</option>
+                <option value="HIGH">High</option>
+                <option value="MED">Medium</option>
+                <option value="LOW">Low</option>
               </select>
             </label>
             <div className="flex flex-1 flex-col gap-1">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Query</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Search</span>
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && void runSearch()}
-                  placeholder="Keywords…"
+                  onKeyDown={(e) => e.key === 'Enter' && runSearch()}
+                  placeholder="Name, entity ID, or document type…"
                   className="flex-1 px-4 py-2 border border-outline-variant rounded-lg text-sm bg-surface-container-low"
                 />
                 <button
                   type="button"
-                  disabled={loading || !selectedFile}
-                  onClick={() => void runSearch()}
+                  disabled={loading}
+                  onClick={runSearch}
                   className="px-6 py-2 bg-secondary text-white rounded-lg text-xs font-bold hover:opacity-90 disabled:opacity-40"
                 >
                   {loading ? '…' : 'SEARCH'}
@@ -617,21 +624,110 @@ function ManagementView({ key }: { key?: React.Key }) {
               </div>
             </div>
          </div>
-         {err && <p className="text-xs text-error">{err}</p>}
-         <div className="max-h-80 overflow-y-auto flex flex-col gap-2">
-            {hits.length === 0 && !err && (
-              <p className="text-center text-xs text-on-surface-variant py-6">No results yet.</p>
-            )}
-            {hits.map((r, i) => (
-              <div key={`${r.page_idx}-${i}`} className="rounded-lg border border-outline-variant p-3 text-left text-xs bg-surface-container-low">
-                <div className="mb-1 flex justify-between gap-2">
-                  <span className="font-bold text-secondary">p.{r.page_idx + 1}</span>
-                  <span className="text-on-surface-variant font-mono">{r.score.toFixed(3)}</span>
-                </div>
-                <div className="text-on-surface leading-relaxed break-words">{r.text}</div>
-              </div>
-            ))}
+
+         <div className="bg-surface border border-outline-variant rounded shadow-sm overflow-hidden flex flex-col">
+           <div className="p-4 bg-surface-container border-b border-outline-variant flex justify-between items-center">
+             <span className="text-[10px] font-bold text-on-surface uppercase tracking-widest">
+               {showingAll ? 'Showing full registry' : 'Search results'}
+             </span>
+             <span className="text-[10px] text-on-surface-variant font-mono font-bold">
+               {results.length} {results.length === 1 ? 'entity' : 'entities'}
+             </span>
+           </div>
+           {loading ? (
+             <p className="text-center text-xs text-on-surface-variant py-8 animate-pulse">Searching registry…</p>
+           ) : results.length === 0 ? (
+             <p className="text-center text-xs text-on-surface-variant py-8">No entities match your search.</p>
+           ) : (
+             <div className="overflow-x-auto">
+               <table className="w-full text-left">
+                 <thead>
+                   <tr className="bg-surface-container-low border-b border-outline-variant">
+                     <th className="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Entity / ID</th>
+                     <th className="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Last activity</th>
+                     <th className="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Record type</th>
+                     <th className="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Risk score</th>
+                     <th className="px-6 py-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+                   </tr>
+                 </thead>
+                 <tbody className="divide-y divide-outline-variant">
+                   {results.map((entity) => (
+                     <tr
+                       key={entity.id}
+                       onClick={() => setSelectedEntity(entity)}
+                       className={`cursor-pointer transition-colors ${
+                         selectedEntity?.id === entity.id
+                           ? 'bg-secondary-container/30 border-l-4 border-secondary'
+                           : 'hover:bg-secondary-container/20'
+                       }`}
+                     >
+                       <td className="px-6 py-4">
+                         <div className="text-sm font-bold text-on-surface">{entity.name}</div>
+                         <div className="text-[10px] font-mono text-on-surface-variant font-bold uppercase">{entity.id}</div>
+                       </td>
+                       <td className="px-6 py-4 text-[11px] font-mono text-on-surface-variant">
+                         {entity.submissionDate}
+                       </td>
+                       <td className="px-6 py-4 text-xs text-on-surface-variant">
+                         {entity.documentType}
+                       </td>
+                       <td className="px-6 py-4">
+                         <div className="flex items-center gap-3">
+                           <span className={`font-mono font-bold text-xs ${entity.riskScore > 75 ? 'text-error' : entity.riskScore > 30 ? 'text-amber-600' : 'text-secondary'}`}>
+                             {entity.riskScore}%
+                           </span>
+                           <div className="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+                             <div
+                               className={`h-full ${entity.riskScore > 75 ? 'bg-error' : entity.riskScore > 30 ? 'bg-amber-600' : 'bg-secondary'}`}
+                               style={{ width: `${entity.riskScore}%` }}
+                             />
+                           </div>
+                         </div>
+                       </td>
+                       <td className="px-6 py-4">
+                         <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase ${
+                           entity.status === 'HIGH' ? 'bg-error-container text-on-error-container' :
+                           entity.status === 'MED' ? 'bg-amber-100 text-amber-700' :
+                           'bg-secondary-container text-secondary'
+                         }`}>
+                           {entity.status}
+                         </span>
+                       </td>
+                     </tr>
+                   ))}
+                 </tbody>
+               </table>
+             </div>
+           )}
          </div>
+
+         {selectedEntity && (
+           <div className="rounded-lg border border-outline-variant bg-surface-container-low p-4 flex flex-col gap-3">
+             <div className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Selected entity</div>
+             <div className="flex flex-wrap gap-6 text-sm">
+               <div>
+                 <span className="text-[10px] font-bold text-outline uppercase">Name</span>
+                 <p className="font-bold text-on-surface">{selectedEntity.name}</p>
+               </div>
+               <div>
+                 <span className="text-[10px] font-bold text-outline uppercase">ID</span>
+                 <p className="font-mono font-bold text-secondary">{selectedEntity.id}</p>
+               </div>
+               <div>
+                 <span className="text-[10px] font-bold text-outline uppercase">Record type</span>
+                 <p className="text-on-surface-variant">{selectedEntity.documentType}</p>
+               </div>
+               <div>
+                 <span className="text-[10px] font-bold text-outline uppercase">Risk score</span>
+                 <p className="font-mono font-bold text-on-surface">{selectedEntity.riskScore}%</p>
+               </div>
+               <div>
+                 <span className="text-[10px] font-bold text-outline uppercase">Status</span>
+                 <p className="font-bold uppercase text-on-surface">{selectedEntity.status}</p>
+               </div>
+             </div>
+           </div>
+         )}
       </div>
     </motion.div>
   );

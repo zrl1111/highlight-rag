@@ -31,7 +31,7 @@ fi
 
 # ── Launch via conda run ─────────────────────────────────────────────────────
 echo ""
-echo "Starting server at http://localhost:8000"
+echo "Starting API at http://localhost:8000 (docs: http://localhost:8000/docs)"
 echo "Press Ctrl-C to stop."
 echo ""
 

@@ -1,15 +1,12 @@
 import {StrictMode, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
-import {EvidenceCompareApp} from './components/EvidenceCompareApp.tsx';
 import {LandingPage} from './components/LandingPage.tsx';
 import './index.css';
 
 const DEMO_SESSION_KEY = 'pv_demo_entered';
 
 function Root() {
-  const evidenceMode =
-    new URLSearchParams(window.location.search).get('evidence') === '1';
   const [entered, setEntered] = useState(
     () => sessionStorage.getItem(DEMO_SESSION_KEY) === '1',
   );
@@ -19,13 +16,10 @@ function Root() {
     setEntered(true);
   };
 
-  if (evidenceMode) {
-    return <EvidenceCompareApp />;
-  }
   if (!entered) {
     return <LandingPage onEnterDemo={enterDemo} />;
   }
-  return <App initialView="intake" />;
+  return <App />;
 }
 
 createRoot(document.getElementById('root')!).render(

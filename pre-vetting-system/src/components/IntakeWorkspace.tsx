@@ -11,11 +11,21 @@ import {
 import { PdfAuditSourcePanel } from './PdfAuditSourcePanel';
 import { DataReconciliationPanel } from './DataReconciliationPanel';
 import { DEMO_BASELINE_LABEL, DEMO_ENTITY_ID } from '../lib/demoConfig';
-import { pdfUrl, queryDocument, uploadPdf, type RagHit } from '../lib/highlightApi';
+import {
+  getStatus,
+  pdfUrl,
+  queryDocument,
+  uploadPdf,
+  type RagHit,
+  type StatusResponse,
+  type UploadPhase,
+} from '../lib/highlightApi';
 
 const STORAGE_KEY = 'pv_currentPdf';
 const BATCH_SESSION_KEY = 'pv_batch_session';
 const INTAKE_QUEUE_KEY = 'pv_intake_queue';
+const POLL_INTERVAL_MS = 2000;
+const POLL_MAX_MS = 600_000;
 
 type CompareFieldRow = { field: string; value: string };
 
@@ -33,16 +43,54 @@ const DEMO_DATABASE_ROWS: CompareFieldRow[] = [
   { field: 'Diagnosis Code', value: 'ICD-10 J45.90' },
 ];
 
+type IntakeRowStatus = 'uploading' | 'indexed' | 'extracting' | 'ready' | 'error';
+
 type IntakeRow = {
   id: string;
   name: string;
   sizeLabel: string;
-  status: 'uploading' | 'indexed' | 'error';
+  status: IntakeRowStatus;
   filename?: string;
   errorMessage?: string;
+  extractionError?: string;
   chunkCount?: number;
   parseMode?: string;
+  fieldCount?: number;
 };
+
+function phaseToRowStatus(phase: UploadPhase): IntakeRowStatus {
+  if (phase === 'parsing') return 'uploading';
+  if (phase === 'indexed') return 'indexed';
+  if (phase === 'extracting') return 'extracting';
+  if (phase === 'ready') return 'ready';
+  return 'error';
+}
+
+function rowPatchFromStatus(
+  row: IntakeRow,
+  status: StatusResponse,
+): IntakeRow {
+  const nextStatus = phaseToRowStatus(status.phase);
+  return {
+    ...row,
+    status: nextStatus,
+    filename: status.filename,
+    chunkCount: status.chunk_count ?? row.chunkCount,
+    parseMode: status.mode ?? row.parseMode,
+    fieldCount: status.field_count ?? row.fieldCount,
+    errorMessage: nextStatus === 'error' ? status.error ?? 'Processing failed' : undefined,
+    extractionError:
+      nextStatus === 'indexed' && status.error && !status.extraction_ready
+        ? status.error
+        : nextStatus === 'ready'
+          ? undefined
+          : row.extractionError,
+  };
+}
+
+function needsStatusPolling(status: IntakeRowStatus): boolean {
+  return status === 'uploading' || status === 'indexed' || status === 'extracting';
+}
 
 export function IntakeWorkspace() {
   const [mode, setMode] = useState<'upload' | 'audit' | 'reconcile'>('upload');
@@ -60,6 +108,8 @@ export function IntakeWorkspace() {
   const [focusPage1Based, setFocusPage1Based] = useState<number | null>(null);
   const [searchError, setSearchError] = useState<string | null>(null);
   const [uploadHint, setUploadHint] = useState<string | null>(null);
+  const pollTimersRef = useRef<Map<string, ReturnType<typeof setInterval>>>(new Map());
+  const pollStartedAtRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
     try {
@@ -86,11 +136,66 @@ export function IntakeWorkspace() {
     }
   }, [rows]);
 
+  const stopPolling = useCallback((rowId: string) => {
+    const timer = pollTimersRef.current.get(rowId);
+    if (timer) {
+      clearInterval(timer);
+      pollTimersRef.current.delete(rowId);
+    }
+    pollStartedAtRef.current.delete(rowId);
+  }, []);
+
+  const applyStatusUpdate = useCallback((rowId: string, status: StatusResponse) => {
+    setRows((prev) =>
+      prev.map((r) => (r.id === rowId ? rowPatchFromStatus(r, status) : r)),
+    );
+    const next = phaseToRowStatus(status.phase);
+    if (next === 'ready' || next === 'error') {
+      stopPolling(rowId);
+    }
+  }, [stopPolling]);
+
+  const startPolling = useCallback(
+    (rowId: string, filename: string) => {
+      if (pollTimersRef.current.has(rowId)) return;
+      pollStartedAtRef.current.set(rowId, Date.now());
+
+      const tick = async () => {
+        const started = pollStartedAtRef.current.get(rowId) ?? Date.now();
+        if (Date.now() - started > POLL_MAX_MS) {
+          stopPolling(rowId);
+          return;
+        }
+        try {
+          const status = await getStatus(filename);
+          applyStatusUpdate(rowId, status);
+        } catch {
+          /* keep polling until timeout */
+        }
+      };
+
+      void tick();
+      const timer = setInterval(() => void tick(), POLL_INTERVAL_MS);
+      pollTimersRef.current.set(rowId, timer);
+    },
+    [applyStatusUpdate, stopPolling],
+  );
+
   useEffect(() => {
-    // #region agent log
-    fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'IntakeWorkspace.tsx:rowsEffect',message:'rows or mode changed',data:{mode,rowsLength:rows.length,statuses:rows.map((r)=>r.status)},timestamp:Date.now(),hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
-  }, [mode, rows]);
+    return () => {
+      pollTimersRef.current.forEach((timer) => clearInterval(timer));
+      pollTimersRef.current.clear();
+      pollStartedAtRef.current.clear();
+    };
+  }, []);
+
+  useEffect(() => {
+    for (const row of rows) {
+      if (row.filename && needsStatusPolling(row.status)) {
+        startPolling(row.id, row.filename);
+      }
+    }
+  }, [rows, startPolling]);
 
   // Disabled for batch intake testing: was auto-opening audit for pv_currentPdf in localStorage.
   // useEffect(() => {
@@ -160,9 +265,6 @@ export function IntakeWorkspace() {
   const processPdfFile = async (file: File) => {
     const id = Math.random().toString(36).slice(2, 11);
     const sizeLabel = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
-    // #region agent log
-    fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'IntakeWorkspace.tsx:processPdfFile',message:'processPdfFile start',data:{id,name:file.name,size:file.size},timestamp:Date.now(),hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
     setUploadHint(null);
     setRows((prev) => [
       {
@@ -175,15 +277,15 @@ export function IntakeWorkspace() {
     ]);
     try {
       const data = await uploadPdf(file);
-      // #region agent log
-      fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'IntakeWorkspace.tsx:processPdfFile',message:'upload success',data:{id,filename:data.filename,chunkCount:data.chunk_count},timestamp:Date.now(),hypothesisId:'D'})}).catch(()=>{});
-      // #endregion
+      const phase = data.phase ?? (data.accepted ? 'parsing' : 'indexed');
+      const rowStatus = phaseToRowStatus(phase);
+
       setRows((prev) =>
         prev.map((r) =>
           r.id === id
             ? {
                 ...r,
-                status: 'indexed' as const,
+                status: rowStatus,
                 filename: data.filename,
                 chunkCount: data.chunk_count,
                 parseMode: data.mode,
@@ -191,11 +293,13 @@ export function IntakeWorkspace() {
             : r,
         ),
       );
+
+      if (rowStatus !== 'ready' && rowStatus !== 'error') {
+        startPolling(id, data.filename);
+      }
     } catch (e) {
       const msg = e instanceof Error ? e.message : 'Upload failed';
-      // #region agent log
-      fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'IntakeWorkspace.tsx:processPdfFile',message:'upload error',data:{id,error:msg},timestamp:Date.now(),hypothesisId:'D'})}).catch(()=>{});
-      // #endregion
+      stopPolling(id);
       setRows((prev) =>
         prev.map((r) =>
           r.id === id ? { ...r, status: 'error', errorMessage: msg } : r,
@@ -208,9 +312,6 @@ export function IntakeWorkspace() {
     const pdfs = Array.from(files).filter((f) =>
       f.name.toLowerCase().endsWith('.pdf'),
     );
-    // #region agent log
-    fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'IntakeWorkspace.tsx:acceptPdfFiles',message:'acceptPdfFiles',data:{incomingCount:Array.from(files).length,pdfCount:pdfs.length,names:pdfs.map((f)=>f.name)},timestamp:Date.now(),hypothesisId:'A'})}).catch(()=>{});
-    // #endregion
     if (pdfs.length === 0) {
       setUploadHint('Only PDF files are supported. Please select a .pdf file.');
       return;
@@ -237,20 +338,54 @@ export function IntakeWorkspace() {
 
   const onFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Snapshot before clearing — FileList is live and empties when input.value is reset.
-    const picked = Array.from(e.target.files ?? []);
-    const lenBeforeClear = picked.length;
+    const picked = Array.from(e.target.files ?? []) as File[];
     e.target.value = '';
-    const lenAfterClear = picked.length;
-    // #region agent log
-    fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',runId:'post-fix',location:'IntakeWorkspace.tsx:onFileInputChange',message:'file input change',data:{lenBeforeClear,lenAfterClear},timestamp:Date.now(),hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
     if (picked.length === 0) return;
     acceptPdfFiles(picked);
   };
 
   const indexedFiles = rows
-    .filter((r): r is IntakeRow & { filename: string } => r.status === 'indexed' && !!r.filename)
+    .filter(
+      (r): r is IntakeRow & { filename: string } =>
+        !!r.filename &&
+        (r.status === 'indexed' || r.status === 'extracting' || r.status === 'ready'),
+    )
     .map((r) => ({ id: r.id, displayName: r.name, filename: r.filename }));
+
+  const rowStatusDetail = (file: IntakeRow): React.ReactNode => {
+    if (file.status === 'uploading') return ' • Parsing layout (Azure)…';
+    if (file.status === 'indexed') {
+      const chunks =
+        file.chunkCount != null ? ` • ${file.chunkCount} chunks · ${file.parseMode ?? ''}` : '';
+      if (file.extractionError) {
+        return (
+          <>
+            {chunks}
+            <span className="text-amber-700"> • {file.extractionError}</span>
+          </>
+        );
+      }
+      return `${chunks} • Extracting fields…`;
+    }
+    if (file.status === 'extracting') {
+      const chunks =
+        file.chunkCount != null ? ` • ${file.chunkCount} chunks` : '';
+      return `${chunks} • Extracting fields…`;
+    }
+    if (file.status === 'ready') {
+      const fields =
+        file.fieldCount != null ? ` • ${file.fieldCount} fields ready` : ' • Fields ready';
+      const chunks =
+        file.chunkCount != null ? ` • ${file.chunkCount} chunks` : '';
+      return `${chunks}${fields}`;
+    }
+    if (file.status === 'error') {
+      return (
+        <span className="text-error"> • {file.errorMessage ?? 'Failed'}</span>
+      );
+    }
+    return null;
+  };
 
   if (mode === 'reconcile') {
     if (!batchSessionId || indexedFiles.length === 0) {
@@ -301,7 +436,7 @@ export function IntakeWorkspace() {
             Vetting Intake Gateway
           </h3>
           <p className="text-sm text-on-surface-variant">
-            Upload a PDF for Azure Document Intelligence layout + BM25 indexing (same pipeline as
+            Upload a file for Azure Document Intelligence layout + BM25 indexing (same pipeline as
             highlight_rag).
           </p>
           <p className="mt-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-medium text-blue-900">
@@ -328,9 +463,6 @@ export function IntakeWorkspace() {
           </div>
           <div className="text-center">
             <p className="text-sm font-bold text-on-surface">Drag and drop PDF here</p>
-            <p className="mt-1 text-xs text-on-surface-variant">
-              PDF only (Azure Document Intelligence). Max size depends on server limits.
-            </p>
           </div>
           <button
             type="button"
@@ -371,6 +503,9 @@ export function IntakeWorkspace() {
                   type="button"
                   className="text-[10px] font-bold text-secondary hover:underline"
                   onClick={() => {
+                    pollTimersRef.current.forEach((timer) => clearInterval(timer));
+                    pollTimersRef.current.clear();
+                    pollStartedAtRef.current.clear();
                     setRows([]);
                     setUploadHint(null);
                     sessionStorage.removeItem(BATCH_SESSION_KEY);
@@ -396,23 +531,25 @@ export function IntakeWorkspace() {
                       <div className="text-xs font-bold text-on-surface">{file.name}</div>
                       <div className="mt-1 text-[10px] uppercase text-on-surface-variant">
                         {file.sizeLabel}
-                        {file.status === 'uploading' && ' • INDEXING…'}
-                        {file.status === 'indexed' &&
-                          file.chunkCount != null &&
-                          ` • ${file.chunkCount} chunks · ${file.parseMode ?? ''}`}
-                        {file.status === 'error' && (
-                          <span className="text-error"> • {file.errorMessage}</span>
-                        )}
+                        {rowStatusDetail(file)}
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    {file.status === 'uploading' && (
+                    {(file.status === 'uploading' || file.status === 'extracting') && (
                       <span className="text-[10px] font-mono font-bold text-secondary">
-                        Processing…
+                        {file.status === 'uploading' ? 'Parsing…' : 'Extracting…'}
                       </span>
                     )}
-                    {file.status === 'indexed' && file.filename && (
+                    {file.status === 'ready' && (
+                      <span className="text-[10px] font-mono font-bold text-green-700">
+                        Ready
+                      </span>
+                    )}
+                    {file.filename &&
+                      (file.status === 'indexed' ||
+                        file.status === 'extracting' ||
+                        file.status === 'ready') && (
                       <button
                         type="button"
                         onClick={() => openAudit(file.filename!, file.name)}

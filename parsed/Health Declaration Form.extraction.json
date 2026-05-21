@@ -1,0 +1,456 @@
+{
+  "extracted_data": {
+    "personal_info": [
+      {
+        "field_id": "applicantFirstName",
+        "label": "Applicant First Name",
+        "value": "Steven",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantLastName",
+        "label": "Applicant Last Name",
+        "value": "Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantMiddleInitial",
+        "label": "Applicant Middle Initial",
+        "value": "M",
+        "ui_input_type": "text",
+        "confidence": "low"
+      },
+      {
+        "field_id": "applicantGender",
+        "label": "Applicant Gender",
+        "value": "Male",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantDateOfBirth",
+        "label": "Applicant Date of Birth",
+        "value": "01/01/1998",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantNationality",
+        "label": "Applicant Nationality",
+        "value": "Canadian",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantID",
+        "label": "Applicant ID",
+        "value": "IND-1234",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ],
+    "medical_info": [
+      {
+        "field_id": "healthDeclarationPsychiatricIllness",
+        "label": "Psychiatric illness",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationEpilepsy",
+        "label": "Epilepsy",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationMigraine",
+        "label": "Migraine",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationAsthma",
+        "label": "Asthma",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationTuberculosis",
+        "label": "Tuberculosis (PTB)",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationHypertension",
+        "label": "Hypertension (HPT)",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationDiabetesMellitus",
+        "label": "Diabetes Mellitus (DM)",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationHeartDiseases",
+        "label": "Heart Diseases",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationMalaria",
+        "label": "Malaria",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationThyroidDiseases",
+        "label": "Thyroid Diseases",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationKidneyDiseases",
+        "label": "Kidney Diseases",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationCancer",
+        "label": "Cancer",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationHIVAIDS",
+        "label": "HIV/AIDS",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationVenerealDiseases",
+        "label": "Venereal Diseases",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationLeukemia",
+        "label": "Leukemia",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationHemophilia",
+        "label": "Hemophilia",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationHepatitis",
+        "label": "Hepatitis",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationMeasles",
+        "label": "Measles",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationGermanMeasles",
+        "label": "German Measles (rubella)",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeSleep",
+        "label": "Past Year Life - Sleep",
+        "value": "7~8 hours every day",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeExercise",
+        "label": "Past Year Life - Exercise",
+        "value": "Yes",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeAnxiety",
+        "label": "Past Year Life - Anxiety and worried",
+        "value": "Few or not",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeChestStuffy",
+        "label": "Past Year Life - Chest is stuffy",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeStomachAche",
+        "label": "Past Year Life - Stomach-ache",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthDeclarationPastYearLifeHeadache",
+        "label": "Past Year Life - Headache",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationHeight",
+        "label": "Physical Examination - HEIGHT",
+        "value": "180 cm",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationWeight",
+        "label": "Physical Examination - WEIGHT",
+        "value": "70 kg",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationBloodPressure",
+        "label": "Physical Examination - BLOOD PRESSURE",
+        "value": "120/80 mmHg",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationPulseRate",
+        "label": "Physical Examination - PULSE RATE",
+        "value": "20 /min",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationVisualAcuity",
+        "label": "Physical Examination - VISUAL ACUITY",
+        "value": "R 5,0 L 5,0",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationEyes",
+        "label": "Physical Examination - EYES",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationEarNoseThroat",
+        "label": "Physical Examination - EAR/NOSE/THROAT",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationNeck",
+        "label": "Physical Examination - NECK",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationChest",
+        "label": "Physical Examination - CHEST",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationChestXRay",
+        "label": "Physical Examination - CHEST X RAY",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationAbdomen",
+        "label": "Physical Examination - ABDOMEN",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationSpinalColumnArmsLegs",
+        "label": "Physical Examination - SPINAL COLUMN ARMS AND LEGS",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationSkin",
+        "label": "Physical Examination - SKIN",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicalExaminationMouthCavity",
+        "label": "Physical Examination - MOUTH CAVITY",
+        "value": "normal",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "urineTestResult",
+        "label": "Urine Test",
+        "value": "NAD - WBC - RBC - PROTEIN - GLUCOSE -",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "hepatitisBTestResult",
+        "label": "Hepatitis B Test",
+        "value": "NEGATIVE",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "syphilisTestResult",
+        "label": "Serological Test for Syphilis",
+        "value": "NEGATIVE",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "hivTestResult",
+        "label": "HIV Test",
+        "value": "NEGATIVE",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "pregnancyTestResult",
+        "label": "Pregnancy Test",
+        "value": "NEGATIVE",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "treatmentForCondition",
+        "label": "Applicant now under treatment for any physical or emotional condition?",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "healthCareRecommendations",
+        "label": "Recommendations for the health care of this applicant",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "carrierOfCommunicableDisease",
+        "label": "Applicant is a carrier of any communicable disease?",
+        "value": "No",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "medicalFitnessCertification",
+        "label": "Applicant is medically fit to undertake a program in Taiwan",
+        "value": "Yes",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ],
+    "signature": [
+      {
+        "field_id": "applicantSignature",
+        "label": "Applicant Signature",
+        "value": "Steve Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "applicantSignatureDate",
+        "label": "Applicant Signature Date",
+        "value": "01/05/2026",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianSignature",
+        "label": "Physician Signature",
+        "value": "Amy Twin",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ],
+    "other_info": [
+      {
+        "field_id": "facilityName",
+        "label": "Facility Name",
+        "value": "International Cooperation and Development Fund",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "documentType",
+        "label": "Document Type",
+        "value": "MEDICAL REPORT",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianHospitalName",
+        "label": "Physician Hospital Name",
+        "value": "Joshua Hospital",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianAddress",
+        "label": "Physician Address",
+        "value": "135 Tree Avenue",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ]
+  },
+  "meta": {
+    "extraction_time": "2026-05-21T23:13:19.769176",
+    "total_chunks": 1
+  },
+  "stats": {
+    "total_personal_info": 7,
+    "total_medical_info": 48,
+    "total_signature": 3,
+    "total_other_info": 4
+  }
+}

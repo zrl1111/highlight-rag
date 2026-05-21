@@ -1,0 +1,421 @@
+{
+  "extracted_data": {
+    "personal_info": [
+      {
+        "field_id": "employeeName",
+        "label": "Employee Name",
+        "value": "Steven Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "jobTitle",
+        "label": "Job Title",
+        "value": "Warehouse Associate",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "lastDayWorked",
+        "label": "Last Day Worked",
+        "value": "12/03/2025",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "dateOfBirthEmployee",
+        "label": "DOB",
+        "value": "12-Aug-1985",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "employeeSignature",
+        "label": "Employee Signature",
+        "value": "Steven Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "contactPhone",
+        "label": "Contact Phone #",
+        "value": "852 12341234",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "personalEmail",
+        "label": "Personal E-mail",
+        "value": "sample@sample.com",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ],
+    "medical_info": [
+      {
+        "field_id": "dateFirstIncapableWorking",
+        "label": "Date first incapable of working",
+        "value": "12/03/2025",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "diagnosis",
+        "label": "Diagnosis",
+        "value": "T2DM",
+        "ui_input_type": "text",
+        "confidence": "medium"
+      },
+      {
+        "field_id": "medicationStatus",
+        "label": "Medication Status",
+        "value": "Stopped taking Metformin in 2021",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "specifiedPeriodOfExpectedAbsence",
+        "label": "Specified period of expected absence (total disability)",
+        "value": "October 6, 2023 to October 20, 2023",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "natureOfIllness",
+        "label": "Nature of Illness",
+        "value": "Acute lower musculoskeletal strain severely limiting mobility, bending, and lifting capacity.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "isEmployeeReceivingTreatment",
+        "label": "Is Employee receiving treatment",
+        "value": "Yes",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "treatmentDetails",
+        "label": "Treatment Details",
+        "value": "Physiotherapy twice weekly and prescribed muscle relaxants.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "anticipatedDateOfCompleteRecovery",
+        "label": "Anticipated date of complete recovery",
+        "value": "November 15, 2026",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsSittingStanding",
+        "label": "Maximum continuous sitting or standing, and need to alternate posture",
+        "value": "Maximum 30 minutes continuous sitting or standing. Needs to alternate posture frequently.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsLiftingFloorToWaist",
+        "label": "Lifting Floor to Waist",
+        "value": "Less than 10kg",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsLiftingWaistToShoulder",
+        "label": "Lifting Waist to Shoulder",
+        "value": "Less than 10kg",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsAboveShoulder",
+        "label": "Above Shoulder activity",
+        "value": "Bending or twisting at waist.",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsHandUse",
+        "label": "Limited Ability to use hand",
+        "value": "hold objects, grip",
+        "ui_input_type": "text",
+        "confidence": "low"
+      },
+      {
+        "field_id": "functionalLimitationsRepetitiveMovement",
+        "label": "Repetitive Movement of",
+        "value": "Bending or twisting at waist.",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsPushingPulling",
+        "label": "Pushing/Pulling",
+        "value": "Limited to 15kg of force.",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsChemicalExposure",
+        "label": "Chemical/ Environmental Exposure to",
+        "value": "N/A",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsAttendToDetail",
+        "label": "Attend to detail",
+        "value": "Unrestricted",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsPerformMultipleTasks",
+        "label": "Perform multiple tasks",
+        "value": "Unrestricted",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "functionalLimitationsExerciseJudgement",
+        "label": "Exercise appropriate judgement and behaviour",
+        "value": "Unrestricted",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "otherFunctionalLimitations",
+        "label": "Other Functional Limitations",
+        "value": "Patient is currently taking muscle relaxants which may cause mild drowsiness.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "durationOfFunctionalLimitations",
+        "label": "Duration of functional limitations",
+        "value": "4 weeks",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "discussedReturnToWorkWithPatient",
+        "label": "Have you discussed return to work with your patient?",
+        "value": "Yes, patient is eager to return on modified light duties.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "recommendationForWork",
+        "label": "Recommendation for Work",
+        "value": "Fit for modified work",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "workRecommendationGraduatedHours",
+        "label": "Graduated hours",
+        "value": "✔",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "workRecommendationComments",
+        "label": "Comments for modified work",
+        "value": "Start with 4-hour shifts for Week 1, progressing to 6-hour shifts in Week 2.\nStrictly desk work, light inventory counting, or dispatch. No heavy lifting over",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "reassessmentDate",
+        "label": "Reassessment Date",
+        "value": "November 10, 2026",
+        "ui_input_type": "date",
+        "confidence": "high"
+      }
+    ],
+    "signature": [
+      {
+        "field_id": "physicianName",
+        "label": "Physician's Name",
+        "value": "Dr. S. Machen",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianAddress",
+        "label": "Physician's Address",
+        "value": "123 Main Medical Plaza, Suite 400, Hamilton, ON L8N 1M8",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianPhone",
+        "label": "Physician's Phone",
+        "value": "905-555-8822",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianFax",
+        "label": "Physician's Fax",
+        "value": "905-555-8822",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianSignature",
+        "label": "Physician's Signature",
+        "value": "Dr. S. Machen",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianSignatureDate",
+        "label": "Physician's Signature Date",
+        "value": "13, 5, 2026",
+        "ui_input_type": "date",
+        "confidence": "high"
+      }
+    ],
+    "other_info": [
+      {
+        "field_id": "facilityName",
+        "label": "Facility Name",
+        "value": "St. Joseph's Healthcare , Hamilton",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "documentType",
+        "label": "Document Type",
+        "value": "ATTENDING PHYSICIAN STATEMENT FORM A",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "employmentCriteria",
+        "label": "Employment Criteria",
+        "value": "For ONA employees with date of employment prior to Jan1, 2006 (1992 HOODIP)",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "policyStatement",
+        "label": "Policy Statement",
+        "value": "It is your responsibility to provide an Attending Physician Statement every 2 weeks to support your continued medical absence unless otherwise arranged with the Health Office Case Manager.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "consentStatement",
+        "label": "Consent Statement",
+        "value": "I consent to allow Occupational Health & Safety Services to provide information related to my fitness for work, including capabilities, functional limitations and any accommodation needs to my Manager/ Supervisor and Union Representation (if applicable)",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "reimbursementInstructions",
+        "label": "Reimbursement Instructions",
+        "value": "Pay treating practitioner directly.\nSubmit receipts to the Occupational Health Office within 3 months - must include your physician's contact information (name, address, phone number)",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "physicianInstructions",
+        "label": "Physician Instructions",
+        "value": "All information and sections requested below must be fully completed to ensure the employer can determine the employee's eligibility for salary replacement benefits or approval of unpaid medical leave of absence",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "facilitySupportsReturnToWork",
+        "label": "Facility Supports Return to Work",
+        "value": "St. Joseph's Healthcare Hamilton supports early and safe return to work",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "dateFirstAssessedToCompleteDisableFromAllDuties",
+        "label": "Date first assessed to be total disabled from all duties of",
+        "value": "Professor",
+        "ui_input_type": "text",
+        "confidence": "low"
+      },
+      {
+        "field_id": "physicianInstructionDate",
+        "label": "Physician Instruction Date",
+        "value": "25/03/12",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "datesExaminedRelatedToIllness",
+        "label": "Dates examined related to this illness",
+        "value": "Per patient records, diagnosed with T2DM at public clinic in Nov 2019. Stopped taking Metformin in 2021.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkGraduatedHours",
+        "label": "Graduated hours",
+        "value": "✔",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkModifiedWork",
+        "label": "Fit for modified work",
+        "value": "✔",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkRegularHours",
+        "label": "Regular Hours",
+        "value": "☐",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkFitForFullDuties",
+        "label": "Fit to return to work full duties",
+        "value": "☐",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkUnfit",
+        "label": "Unfit to work",
+        "value": "☐",
+        "ui_input_type": "checkbox",
+        "confidence": "high"
+      },
+      {
+        "field_id": "returnToWorkExpectedDurationUnfit",
+        "label": "Expected duration (unfit to work)",
+        "value": "",
+        "ui_input_type": "text",
+        "confidence": "low"
+      },
+      {
+        "field_id": "emailOrFaxDetails",
+        "label": "Completed form to be returned by email or fax",
+        "value": "Occupational Health and Safety Services\nSt. Joseph's Healthcare Hamilton\nE: Hoffice@stjoes.ca\nF: 905-521-6111",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      }
+    ]
+  },
+  "meta": {
+    "extraction_time": "2026-05-16T22:05:10.368079",
+    "total_chunks": 1
+  },
+  "stats": {
+    "total_personal_info": 7,
+    "total_medical_info": 26,
+    "total_signature": 6,
+    "total_other_info": 18
+  }
+}

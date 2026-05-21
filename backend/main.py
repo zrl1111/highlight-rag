@@ -26,8 +26,7 @@ import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, PlainTextResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from pydantic import BaseModel
 from starlette.requests import Request
 
@@ -35,7 +34,14 @@ try:
     from .demo_registry import BASELINE_PDF_FILENAME, BASELINE_STEM
     from .doc_parser import parse_pdf, post_process
     from .rag import RAGIndex
-    from .reconciliation import ReconciliationFileRef, evaluate_files
+    from .reconciliation import (
+        ReconciliationFileRef,
+        build_file_status,
+        evaluate_files,
+        init_upload_job,
+        maybe_schedule_extraction,
+        update_upload_job,
+    )
     from .adverse_media import screen_applicant_background
     from .risk_scan import analyze_applicant_risk
 except ImportError:
@@ -48,7 +54,14 @@ except ImportError:
     from demo_registry import BASELINE_PDF_FILENAME, BASELINE_STEM
     from doc_parser import parse_pdf, post_process
     from rag import RAGIndex
-    from reconciliation import ReconciliationFileRef, evaluate_files
+    from reconciliation import (
+        ReconciliationFileRef,
+        build_file_status,
+        evaluate_files,
+        init_upload_job,
+        maybe_schedule_extraction,
+        update_upload_job,
+    )
     from adverse_media import screen_applicant_background
     from risk_scan import analyze_applicant_risk
 
@@ -226,6 +239,46 @@ def _md_path(pdf_stem: str) -> Path:
     return PARSED_DIR / f"{pdf_stem}.md"
 
 
+def _build_index(filename: str, chunks: list) -> int:
+    idx = RAGIndex()
+    idx.build(post_process(chunks))
+    _indexes[filename] = idx
+    return len(chunks)
+
+
+async def _process_upload_background(pdf_stem: str, filename: str) -> None:
+    """Parse PDF, build BM25 index, then schedule field extraction (cache miss path)."""
+    pdf_path = UPLOAD_DIR / filename
+    cache = _cache_path(pdf_stem)
+    md = _md_path(pdf_stem)
+    try:
+        chunks, markdown_str = await parse_pdf(str(pdf_path))
+        if not chunks:
+            update_upload_job(
+                pdf_stem,
+                "error",
+                error="No text could be extracted from the PDF.",
+            )
+            return
+
+        cache.write_text(
+            json.dumps(chunks, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        md.write_text(markdown_str, encoding="utf-8")
+        mode = "Azure Document Intelligence Layout"
+        chunk_count = _build_index(filename, chunks)
+        update_upload_job(
+            pdf_stem,
+            "indexed",
+            chunk_count=chunk_count,
+            mode=mode,
+        )
+        maybe_schedule_extraction(PARSED_DIR, pdf_stem)
+    except Exception as e:
+        update_upload_job(pdf_stem, "error", error=f"Parsing failed: {e}")
+
+
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
@@ -261,59 +314,57 @@ async def upload(file: UploadFile):
     )
     # #endregion
 
-    # Load chunks from disk cache if available (avoids re-calling Azure)
     md = _md_path(pdf_stem)
+
     if cache.exists():
         chunks = json.loads(cache.read_text(encoding="utf-8"))
-        mode   = "cache (previously parsed)"
+        mode = "cache (previously parsed)"
+        chunk_count = _build_index(filename, chunks)
+        init_upload_job(pdf_stem, filename)
+        update_upload_job(
+            pdf_stem,
+            "indexed",
+            chunk_count=chunk_count,
+            mode=mode,
+        )
+        maybe_schedule_extraction(PARSED_DIR, pdf_stem)
+        status = build_file_status(filename, PARSED_DIR, indexed=True)
         # #region agent log
         _agent_dbg(
             "main.py:upload",
-            "loaded from cache",
+            "cache hit indexed",
             "E",
-            {"chunk_count": len(chunks)},
+            {"chunk_count": chunk_count, "phase": status["phase"]},
         )
         # #endregion
-    else:
-        try:
-            chunks, markdown_str = await parse_pdf(str(pdf_path))
-            mode                 = "Azure Document Intelligence Layout"
-        except Exception as e:
-            # #region agent log
-            _agent_dbg("main.py:upload", "parse_pdf failed", "D", {"err_type": type(e).__name__, "err": str(e)[:500]})
-            # #endregion
-            raise HTTPException(status_code=500, detail=f"Parsing failed: {e}")
+        return {
+            "filename": filename,
+            "chunk_count": chunk_count,
+            "mode": mode,
+            "has_markdown": md.exists(),
+            "phase": status["phase"],
+            "accepted": False,
+        }
 
-        if not chunks:
-            raise HTTPException(
-                status_code=422,
-                detail="No text could be extracted from the PDF.",
-            )
-
-        cache.write_text(
-            json.dumps(chunks, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-        md.write_text(markdown_str, encoding="utf-8")
-
-    idx = RAGIndex()
-    idx.build(post_process(chunks))
-    _indexes[filename] = idx
-
+    init_upload_job(pdf_stem, filename)
+    asyncio.create_task(_process_upload_background(pdf_stem, filename))
     # #region agent log
     _agent_dbg(
         "main.py:upload",
-        "returning success dict",
+        "accepted async parse",
         "B",
-        {"filename": filename, "chunk_count": len(chunks), "mode": mode, "has_markdown": md.exists()},
+        {"filename": filename},
     )
     # #endregion
-    return {
-        "filename":    filename,
-        "chunk_count": len(chunks),
-        "mode":        mode,
-        "has_markdown": md.exists(),
-    }
+    return JSONResponse(
+        status_code=202,
+        content={
+            "filename": filename,
+            "phase": "parsing",
+            "accepted": True,
+            "has_markdown": False,
+        },
+    )
 
 
 class QueryRequest(BaseModel):
@@ -361,14 +412,13 @@ async def serve_markdown(filename: str):
 
 @app.get("/api/status/{filename}")
 async def status(filename: str):
-    """Frontend calls this on page reload to check if an index is still live."""
-    stem = Path(filename).stem
-    return {
-        "filename":    filename,
-        "indexed":     filename in _indexes,
-        "cached":      _cache_path(stem).exists(),
-        "has_markdown": _md_path(stem).exists(),
-    }
+    """Poll upload phases: parsing → indexed → extracting → ready."""
+    filename = Path(filename).name
+    return build_file_status(
+        filename,
+        PARSED_DIR,
+        indexed=filename in _indexes,
+    )
 
 
 @app.get("/api/documents")
@@ -464,11 +514,10 @@ async def vetting_background_screening(req: BackgroundScreeningRequest):
         raise HTTPException(status_code=500, detail=msg) from e
 
 
-# ---------------------------------------------------------------------------
-# Static frontend (last, so API routes take priority)
-# ---------------------------------------------------------------------------
-
-app.mount("/", StaticFiles(directory=str(BASE / "frontend"), html=True))
+@app.get("/")
+async def root():
+    """API-only server; use pre-vetting-system on :3000 for the UI."""
+    return {"service": "highlight-rag-api", "docs": "/docs"}
 
 
 if __name__ == "__main__":

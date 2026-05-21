@@ -1,0 +1,115 @@
+{
+  "extracted_data": {
+    "personal_info": [
+      {
+        "field_id": "firstName",
+        "label": "First Name",
+        "value": "Steven",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "lastName",
+        "label": "Last Name",
+        "value": "Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "fullName",
+        "label": "Employee Name",
+        "value": "Steven Zhang Kangyang",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "dateOfBirth",
+        "label": "Date of birth",
+        "value": "01/01/1995",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "address",
+        "label": "Address",
+        "value": "789 Willow Creek Drive, Apt 4B, Toronto, ON M4C 1Z5",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "phoneNumber",
+        "label": "Phone Number",
+        "value": "416-555-0987",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "personalEmail",
+        "label": "Personal Email",
+        "value": "m.johnson95@email.com",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "employerName",
+        "label": "Employer Name",
+        "value": "National Logistics Co.",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "jobTitle",
+        "label": "Job Title",
+        "value": "Warehouse Associate",
+        "ui_input_type": "text",
+        "confidence": "high"
+      }
+    ],
+    "medical_info": [
+      {
+        "field_id": "natureOfIllness",
+        "label": "Nature of illness or injury",
+        "value": "Acute Viral Myocarditis (Inflammation of the heart muscle resulting in reduced cardiac output and arrhythmias).",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "symptomsBegan",
+        "label": "Symptoms began",
+        "value": "05/02/2024",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "dateFirstUnableToWork",
+        "label": "Date first unable to work",
+        "value": "05/03/2024",
+        "ui_input_type": "date",
+        "confidence": "high"
+      },
+      {
+        "field_id": "treatmentCompliant",
+        "label": "Compliant with treatment",
+        "value": "Yes",
+        "ui_input_type": "text",
+        "confidence": "high"
+      },
+      {
+        "field_id": "workImpact",
+        "label": "How illness impacts work",
+        "value": "Patient experiences severe shortness of breath, fatigue, and chest pain upon physical exertion. Heart rate spikes dangerously with minimal physical strain.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      },
+      {
+        "field_id": "exertionRisk",
+        "label": "How working impacts recovery",
+        "value": "Physical exertion at this stage could induce severe cardiac arrhythmias, permanent heart muscle damage, or sudden cardiac arrest. Strict rest is required.",
+        "ui_input_type": "textarea",
+        "confidence": "high"
+      }
+    ],
+    "signature": [],
+    "other_info": []
+  }
+}

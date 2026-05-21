@@ -18,13 +18,14 @@ import {
 import { pdfUrl, queryDocument, runBackgroundScreening, type RagHit } from '../lib/highlightApi';
 import { firstPageFromHighlights } from '../lib/pdfHighlightUtils';
 import { fetchReconciliationSnapshot } from '../lib/reconciliationApi';
-import { openEvidenceCompareWindow } from '../lib/evidenceStorage';
+import type { EvidenceComparePayload } from '../lib/evidenceTypes';
 import type {
   ExtractedFieldRow,
   ReconciliationPerFile,
   ReconciliationSnapshot,
   ReconciliationWarning,
 } from '../lib/reconciliationTypes';
+import { EvidenceCompareSheet } from './EvidenceCompareSheet';
 import { SourcePdfModal } from './SourcePdfModal';
 
 export interface IndexedIntakeFile {
@@ -47,13 +48,13 @@ function normalizeHits(highlights: RagHit[]): RagHit[] {
   }));
 }
 
-function openWarningEvidence(w: ReconciliationWarning) {
+function buildWarningEvidencePayload(w: ReconciliationWarning): EvidenceComparePayload | null {
   const title = w.title ?? w.code;
   const ev = w.evidence;
   if (!ev) {
     const fn = w.filename;
-    if (!fn) return;
-    openEvidenceCompareWindow({
+    if (!fn) return null;
+    return {
       title,
       summary: w.message,
       submitted: {
@@ -64,11 +65,10 @@ function openWarningEvidence(w: ReconciliationWarning) {
       reference: null,
       referenceMissingNote:
         'No structured evidence payload for this warning yet. Reference pane will populate when your API returns evidence.',
-    });
-    return;
+    };
   }
 
-  openEvidenceCompareWindow({
+  return {
     title,
     summary: w.message,
     submitted: {
@@ -86,7 +86,7 @@ function openWarningEvidence(w: ReconciliationWarning) {
     referenceMissingNote: ev.reference
       ? undefined
       : 'Registry did not return a reference PDF URL for this warning.',
-  });
+  };
 }
 
 function statusBadge(status: ReconciliationPerFile['rows'][0]['status']) {
@@ -151,6 +151,8 @@ export function DataReconciliationPanel({
   const [sourceLoadingKey, setSourceLoadingKey] = useState<string | null>(null);
   const [sourceError, setSourceError] = useState<string | null>(null);
   const [locateRevision, setLocateRevision] = useState(0);
+  const [evidenceSheetOpen, setEvidenceSheetOpen] = useState(false);
+  const [evidencePayload, setEvidencePayload] = useState<EvidenceComparePayload | null>(null);
 
   const filesKey = useMemo(() => files.map((f) => f.filename).join('|'), [files]);
   const previewUrl = previewFilename ? pdfUrl(previewFilename) : null;
@@ -240,6 +242,18 @@ export function DataReconciliationPanel({
   }, []);
 
   const rowSourceKey = (filename: string, field: string) => `${filename}:${field}`;
+
+  const closeEvidenceSheet = useCallback(() => {
+    setEvidenceSheetOpen(false);
+    setEvidencePayload(null);
+  }, []);
+
+  const openWarningEvidence = useCallback((w: ReconciliationWarning) => {
+    const payload = buildWarningEvidencePayload(w);
+    if (!payload) return;
+    setEvidencePayload(payload);
+    setEvidenceSheetOpen(true);
+  }, []);
 
   const closeSourceModal = useCallback(() => {
     setSourceModalOpen(false);
@@ -539,6 +553,12 @@ export function DataReconciliationPanel({
           locateRevision={locateRevision}
           sourceError={sourceError}
           loading={sourceLoadingKey !== null}
+        />
+
+        <EvidenceCompareSheet
+          open={evidenceSheetOpen}
+          payload={evidencePayload}
+          onClose={closeEvidenceSheet}
         />
 
         <div className="flex max-h-[min(40vh,320px)] min-h-0 w-full shrink-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm lg:max-h-none lg:w-72 xl:w-80">

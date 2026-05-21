@@ -76,10 +76,12 @@ CONSTRAINTS & RULES:
 - The root structure must contain exactly one key: "extracted_data".
 - Inside "extracted_data", you MUST include all four category keys ("personal_info", "medical_info", "signature", "other_info"), even if they are empty.
 - If a category has no data in the provided chunk, set its value to an empty array [].
-- Only include information of the content of the file. Ignore components of the document formatting (e.g., Page Footer)
+- Only include information of the content of the file. Ignore components of the document formatting (e.g., Page Footer) or other component of the document (e.g., header, icons).
 - Convert dates to "DD/MM/YYYY" format.
+- Looking into the context for the real meaning of the information, rather than the literal text. (e.g., "Date" of signing is not DOB of the applicant.)
 - There might be various typs of information (e.g., checkboxes, radio buttons, etc.) represented as multiple elements in markdown format. You need to analyze to extract the core informaion and output in human readable form (e.g., True/False, or specific content implied).
 - If you find missing signature, set the value to 'No Signature Found'.
+- Summary the label and value when they are long text.
 - Do not output any markdown formatting (like ```json) outside the JSON structure, and do not include any conversational text. Return ONLY the JSON object.
 
 Health document excerpt:

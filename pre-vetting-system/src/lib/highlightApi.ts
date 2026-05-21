@@ -19,11 +19,15 @@ export async function readJsonBody<T>(res: Response): Promise<T> {
   }
 }
 
+export type UploadPhase = 'parsing' | 'indexed' | 'extracting' | 'ready' | 'error';
+
 export interface UploadResponse {
   filename: string;
-  chunk_count: number;
-  mode: string;
+  chunk_count?: number;
+  mode?: string;
   has_markdown: boolean;
+  phase?: UploadPhase;
+  accepted?: boolean;
 }
 
 export interface RagHit {
@@ -39,6 +43,12 @@ export interface StatusResponse {
   indexed: boolean;
   cached: boolean;
   has_markdown: boolean;
+  phase: UploadPhase;
+  extraction_ready: boolean;
+  error: string | null;
+  chunk_count?: number | null;
+  mode?: string | null;
+  field_count?: number | null;
 }
 
 export async function uploadPdf(file: File): Promise<UploadResponse> {
@@ -46,9 +56,17 @@ export async function uploadPdf(file: File): Promise<UploadResponse> {
   form.append('file', file);
   const res = await fetch('/api/upload', { method: 'POST', body: form });
   const data = (await readJsonBody(res)) as { detail?: string } & Partial<UploadResponse>;
-  // #region agent log
-  fetch('http://127.0.0.1:7754/ingest/1074a86e-f8c4-4106-a01e-73746c0bd6dd',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f8f939'},body:JSON.stringify({sessionId:'f8f939',location:'highlightApi.ts:uploadPdf',message:'upload response',data:{ok:res.ok,status:res.status,fileName:file.name,hasFilename:!!data.filename},timestamp:Date.now(),hypothesisId:'D'})}).catch(()=>{});
-  // #endregion
+  if (res.status === 202) {
+    if (!data.filename) {
+      throw new Error('Upload accepted but filename missing');
+    }
+    return {
+      filename: data.filename,
+      has_markdown: data.has_markdown ?? false,
+      phase: (data.phase as UploadPhase) ?? 'parsing',
+      accepted: true,
+    };
+  }
   if (!res.ok) {
     throw new Error(typeof data.detail === 'string' ? data.detail : 'Upload failed');
   }

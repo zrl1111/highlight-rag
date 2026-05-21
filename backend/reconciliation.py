@@ -10,7 +10,9 @@ import os
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
+
+UploadPhase = Literal["parsing", "indexed", "extracting", "ready", "error"]
 
 from dotenv import load_dotenv
 
@@ -35,12 +37,182 @@ class ReconciliationFileRef:
     original_name: str
 
 
+# In-memory upload / extraction phase (lost on server restart).
+_upload_jobs: dict[str, dict[str, Any]] = {}
+_extraction_running: set[str] = set()
+
+
+def init_upload_job(stem: str, filename: str) -> None:
+    _upload_jobs[stem] = {
+        "filename": filename,
+        "phase": "parsing",
+        "error": None,
+        "chunk_count": None,
+        "mode": None,
+    }
+
+
+def update_upload_job(
+    stem: str,
+    phase: UploadPhase,
+    *,
+    error: str | None = None,
+    chunk_count: int | None = None,
+    mode: str | None = None,
+) -> None:
+    job = _upload_jobs.setdefault(stem, {"filename": f"{stem}.pdf", "phase": phase, "error": None})
+    job["phase"] = phase
+    if error is not None:
+        job["error"] = error
+    if chunk_count is not None:
+        job["chunk_count"] = chunk_count
+    if mode is not None:
+        job["mode"] = mode
+
+
+def get_upload_job(stem: str) -> dict[str, Any] | None:
+    return _upload_jobs.get(stem)
+
+
 def _extraction_cache_path(parsed_dir: Path, stem: str) -> Path:
     return parsed_dir / f"{stem}.extraction.json"
 
 
 def _markdown_path(parsed_dir: Path, stem: str) -> Path:
     return parsed_dir / f"{stem}.md"
+
+
+def _parse_cache_path(parsed_dir: Path, stem: str) -> Path:
+    return parsed_dir / f"{stem}.json"
+
+
+def extraction_ready(parsed_dir: Path, stem: str) -> bool:
+    cache = _extraction_cache_path(parsed_dir, stem)
+    if not cache.exists():
+        return False
+    try:
+        merged = json.loads(cache.read_text(encoding="utf-8"))
+        return not _is_empty_extraction(merged)
+    except Exception:
+        return False
+
+
+def extraction_field_count(parsed_dir: Path, stem: str) -> int:
+    cache = _extraction_cache_path(parsed_dir, stem)
+    if not cache.exists():
+        return 0
+    try:
+        merged = json.loads(cache.read_text(encoding="utf-8"))
+        data = merged.get("extracted_data") or {}
+        return sum(len(data.get(cat) or []) for cat in CATEGORIES if isinstance(data.get(cat), list))
+    except Exception:
+        return 0
+
+
+def _resolve_phase(
+    stem: str,
+    parsed_dir: Path,
+    *,
+    indexed: bool,
+) -> UploadPhase:
+    if extraction_ready(parsed_dir, stem):
+        return "ready"
+
+    job = get_upload_job(stem)
+    if job and job.get("error") and job.get("phase") == "error":
+        return "error"
+
+    if stem in _extraction_running or (job and job.get("phase") == "extracting"):
+        return "extracting"
+
+    if indexed:
+        return "indexed"
+
+    if job and job.get("phase") == "parsing":
+        return "parsing"
+
+    if _parse_cache_path(parsed_dir, stem).exists() and not indexed:
+        return "parsing"
+
+    if job:
+        phase = job.get("phase")
+        if phase in ("parsing", "indexed", "extracting", "ready", "error"):
+            return phase
+
+    return "error" if (job and job.get("error")) else "parsing"
+
+
+def build_file_status(
+    filename: str,
+    parsed_dir: Path,
+    *,
+    indexed: bool,
+) -> dict[str, Any]:
+    stem = Path(filename).stem
+    job = get_upload_job(stem)
+    phase = _resolve_phase(stem, parsed_dir, indexed=indexed)
+    ext_ready = extraction_ready(parsed_dir, stem)
+
+    error: str | None = None
+    if job and job.get("error"):
+        error = str(job["error"])
+    if phase == "error" and not error:
+        error = "Processing failed"
+
+    return {
+        "filename": filename,
+        "indexed": indexed,
+        "cached": _parse_cache_path(parsed_dir, stem).exists(),
+        "has_markdown": _markdown_path(parsed_dir, stem).exists(),
+        "phase": phase,
+        "extraction_ready": ext_ready,
+        "error": error,
+        "chunk_count": job.get("chunk_count") if job else None,
+        "mode": job.get("mode") if job else None,
+        "field_count": extraction_field_count(parsed_dir, stem) if ext_ready else None,
+    }
+
+
+async def ensure_field_extraction(parsed_dir: Path, stem: str) -> dict[str, Any]:
+    md_path = _markdown_path(parsed_dir, stem)
+    if not md_path.exists():
+        raise FileNotFoundError(
+            f"Markdown not found for {stem}.pdf. Re-upload the PDF."
+        )
+    md_text = md_path.read_text(encoding="utf-8")
+    return await asyncio.to_thread(_load_or_extract, parsed_dir, stem, md_text)
+
+
+def maybe_schedule_extraction(parsed_dir: Path, stem: str) -> None:
+    if extraction_ready(parsed_dir, stem):
+        update_upload_job(stem, "ready")
+        return
+    if stem in _extraction_running:
+        return
+    if not _markdown_path(parsed_dir, stem).exists():
+        return
+    schedule_field_extraction(parsed_dir, stem)
+
+
+async def _run_field_extraction(parsed_dir: Path, stem: str) -> None:
+    _extraction_running.add(stem)
+    update_upload_job(stem, "extracting")
+    try:
+        await ensure_field_extraction(parsed_dir, stem)
+        update_upload_job(stem, "ready")
+    except Exception as e:
+        update_upload_job(stem, "indexed", error=str(e))
+    finally:
+        _extraction_running.discard(stem)
+
+
+def schedule_field_extraction(parsed_dir: Path, stem: str) -> None:
+    if stem in _extraction_running:
+        return
+    if extraction_ready(parsed_dir, stem):
+        update_upload_job(stem, "ready")
+        return
+    asyncio.create_task(_run_field_extraction(parsed_dir, stem))
 
 
 # #region agent log

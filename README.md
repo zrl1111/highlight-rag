@@ -2,7 +2,7 @@
 
 PDF document intelligence with retrieval-augmented search (BM25), bounding-box highlights, and a pre-vetting dashboard for reconciliation, risk scanning, and background screening.
 
-The stack has a **FastAPI backend** (Python), a **classic PDF highlighter UI** (static HTML served by the API), and a **React pre-vetting app** (Vite) that proxies API calls to the backend during development.
+The stack has a **FastAPI backend** (Python) and a **React pre-vetting app** (Vite) that talks to the backend during development.
 
 ## Features
 
@@ -16,8 +16,7 @@ The stack has a **FastAPI backend** (Python), a **classic PDF highlighter UI** (
 ```
 highlight_rag/
 ├── backend/              # FastAPI app (RAG, parsing, vetting APIs)
-├── frontend/             # Classic PDF RAG Highlighter (served at :8000)
-├── pre-vetting-system/   # AuditVantage React UI (Vite dev server :3000)
+├── pre-vetting-system/   # AuditVantage React UI (Vite dev server)
 ├── demo-assets/          # Demo PDFs
 ├── parsed/               # Cached Document Intelligence JSON
 ├── uploads/              # Uploaded PDFs
@@ -56,11 +55,9 @@ Cached files in `parsed/` can be loaded without Azure for documents that were pa
 
 ## How to run
 
-### Option A — Full stack (pre-vetting UI + API)
-
 Use two terminals from the `highlight_rag/` directory.
 
-**Terminal 1 — Backend (port 8000)**
+**Terminal 1 — Backend**
 
 ```bash
 # Unix / macOS / Git Bash
@@ -82,9 +79,9 @@ pip install -r requirements.txt
 python -m backend.main
 ```
 
-The API listens at **http://localhost:8000**. Uvicorn runs with reload enabled.
+Leave this running. Uvicorn reload is enabled when started via `python -m backend.main`.
 
-**Terminal 2 — Pre-vetting UI (port 3000)**
+**Terminal 2 — Pre-vetting UI**
 
 ```bash
 cd pre-vetting-system
@@ -92,14 +89,14 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:3000**. Vite proxies `/api` to `http://127.0.0.1:8000` (see `pre-vetting-system/vite.config.ts`). The backend must be running for upload, query, reconciliation, and vetting features.
+Open **http://localhost:3000**. The dev server proxies `/api` to the backend (see `pre-vetting-system/vite.config.ts`). Keep the backend running for upload, query, reconciliation, and vetting.
 
 Production build:
 
 ```bash
 cd pre-vetting-system
 npm run build
-npm run preview   # still requires backend on :8000 for /api
+npm run preview   # still requires the backend running for /api
 ```
 
 ## API overview
@@ -116,7 +113,7 @@ npm run preview   # still requires backend on :8000 for /api
 | `POST` | `/api/vetting/risk-scan` | Applicant risk assessment |
 | `POST` | `/api/vetting/background-screening` | Adverse media / background screening |
 
-Interactive API docs: **http://localhost:8000/docs** (when the server is running).
+When the backend is running, interactive API docs are available at `/docs` on the same host as the API.
 
 ## Architecture
 
@@ -125,7 +122,7 @@ flowchart LR
   subgraph dev [Development]
     UI[pre-vetting-system :3000]
     Vite[Vite /api proxy]
-    API[FastAPI :8000]
+    API[FastAPI backend]
     UI --> Vite --> API
   end
 
@@ -142,17 +139,11 @@ flowchart LR
     API --> AZ
     API --> OR
   end
-
-  subgraph classic [Classic mode]
-    FE[frontend/ static]
-    API --> FE
-    Browser[Browser :8000] --> API
-  end
 ```
 
 ## Troubleshooting
 
-- **Pre-vetting UI cannot reach the API** — Confirm `python -m backend.main` is running on port 8000. The UI shows a hint when the backend is unreachable (`highlightApi.ts`).
+- **Pre-vetting UI cannot reach the API** — Confirm `python -m backend.main` is running in another terminal. The UI shows a hint when the backend is unreachable (`highlightApi.ts`).
 - **Upload fails** — Check Azure credentials in `.env`. Without Azure, use documents that already have JSON under `parsed/`.
 - **Reconciliation / risk / screening errors** — Set `OPENROUTER_API_KEY` in `.env` (not only in `pre-vetting-system/.env`; the backend reads the repo-root `.env`).
 - **Conda env missing on Windows** — Use the venv steps above or create the env with `conda env create -f environment.yml`.

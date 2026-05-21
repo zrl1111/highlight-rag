@@ -1,0 +1,1740 @@
+[
+  {
+    "text": "Yes",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      299.3,
+      384.7,
+      319.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "No",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      299.3,
+      447.5,
+      319.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Psychiatric illness",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      319.8,
+      299.0,
+      346.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:\n:unselected:\n□",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      319.8,
+      384.7,
+      362.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected: :selected:\n:selected:\n□ □",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      319.8,
+      447.5,
+      378.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Epilepsy",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      345.7,
+      299.0,
+      363.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Migraine",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      362.8,
+      299.0,
+      379.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      362.8,
+      384.7,
+      378.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Asthma",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      378.9,
+      299.0,
+      395.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      378.4,
+      384.7,
+      394.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      378.4,
+      447.5,
+      394.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Tuberculosis (PTB)",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      394.5,
+      299.0,
+      411.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      394.0,
+      384.7,
+      411.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      394.0,
+      447.5,
+      411.1
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Hypertension (HPT)",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      411.6,
+      299.0,
+      428.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      411.1,
+      384.7,
+      428.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected:",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      411.1,
+      447.5,
+      428.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Diabetes Mellitus (DM)",
+    "page_idx": 1,
+    "bbox": [
+      72.5,
+      428.7,
+      299.0,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      428.7,
+      384.7,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected:",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      428.7,
+      447.5,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Heart Diseases",
+    "page_idx": 1,
+    "bbox": [
+      71.8,
+      445.3,
+      299.0,
+      460.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      445.8,
+      384.7,
+      460.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected:\n:selected:\n□ □",
+    "page_idx": 1,
+    "bbox": [
+      384.7,
+      445.8,
+      447.5,
+      488.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Malaria",
+    "page_idx": 1,
+    "bbox": [
+      71.8,
+      460.9,
+      299.0,
+      488.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      299.0,
+      460.4,
+      384.7,
+      488.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Yes",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      299.8,
+      808.7,
+      318.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "No",
+    "page_idx": 1,
+    "bbox": [
+      808.7,
+      299.8,
+      868.8,
+      318.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Thyroid Diseases",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      318.4,
+      738.3,
+      347.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      318.4,
+      808.7,
+      347.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected: :selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      318.4,
+      868.8,
+      347.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Kidney Diseases",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      346.7,
+      738.3,
+      363.3
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected:\n:unselected:\n□",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      347.2,
+      808.0,
+      377.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected:",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      347.2,
+      868.8,
+      377.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Cancer",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      362.8,
+      738.3,
+      377.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "HIV/AIDS",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      377.4,
+      738.3,
+      395.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      377.4,
+      808.0,
+      395.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      377.4,
+      868.8,
+      395.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Venereal Diseases",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      395.0,
+      738.3,
+      411.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      395.0,
+      808.0,
+      411.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      395.0,
+      868.1,
+      411.6
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Leukemia",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      411.1,
+      738.3,
+      428.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      411.6,
+      808.0,
+      428.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "□ :selected:",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      411.6,
+      868.1,
+      428.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Hemophilia",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      427.7,
+      738.3,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      428.2,
+      808.0,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      428.2,
+      868.1,
+      445.8
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Hepatitis",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      444.8,
+      738.3,
+      462.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      445.8,
+      808.0,
+      462.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      445.8,
+      868.1,
+      463.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Measles",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      461.4,
+      738.3,
+      478.0
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      462.9,
+      808.0,
+      478.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      462.9,
+      868.1,
+      478.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "German Measles (rubella)",
+    "page_idx": 1,
+    "bbox": [
+      482.0,
+      477.0,
+      738.3,
+      502.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":unselected: □",
+    "page_idx": 1,
+    "bbox": [
+      738.3,
+      478.0,
+      808.0,
+      503.4
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": ":selected: □",
+    "page_idx": 1,
+    "bbox": [
+      808.0,
+      478.5,
+      868.1,
+      503.9
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Name of physician, Title Name of Hospital / Clinic",
+    "page_idx": 3,
+    "bbox": [
+      73.3,
+      617.2,
+      407.4,
+      680.2
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Amy Twin : Joshua Hospital :",
+    "page_idx": 3,
+    "bbox": [
+      407.4,
+      617.2,
+      865.9,
+      678.5
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "Address",
+    "page_idx": 3,
+    "bbox": [
+      72.5,
+      678.5,
+      407.4,
+      764.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "135 Tree Avenue : : :",
+    "page_idx": 3,
+    "bbox": [
+      407.4,
+      677.9,
+      866.7,
+      764.7
+    ],
+    "type": "table_cell"
+  },
+  {
+    "text": "International Cooperation and Development Fund",
+    "page_idx": 0,
+    "bbox": [
+      430.1,
+      111.8,
+      861.6,
+      126.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "MEDICAL REPORT",
+    "page_idx": 0,
+    "bbox": [
+      431.2,
+      151.0,
+      694.7,
+      172.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "TAIWAN",
+    "page_idx": 0,
+    "bbox": [
+      73.0,
+      267.3,
+      212.3,
+      288.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "JCDF",
+    "page_idx": 0,
+    "bbox": [
+      232.8,
+      265.9,
+      419.0,
+      316.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 1: HEALTH DECLARATION",
+    "page_idx": 0,
+    "bbox": [
+      471.4,
+      306.7,
+      823.1,
+      321.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 2: MEDICAL EXAMINATION FORM",
+    "page_idx": 0,
+    "bbox": [
+      471.4,
+      327.6,
+      893.3,
+      342.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Applying for:",
+    "page_idx": 0,
+    "bbox": [
+      157.0,
+      454.2,
+      266.5,
+      469.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Project",
+    "page_idx": 0,
+    "bbox": [
+      305.0,
+      438.5,
+      405.5,
+      469.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "A",
+    "page_idx": 0,
+    "bbox": [
+      453.4,
+      437.4,
+      482.0,
+      470.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "INSTRUCTION :",
+    "page_idx": 0,
+    "bbox": [
+      114.6,
+      541.7,
+      266.3,
+      556.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 1: Personal Details and Health Declaration - to be completed by the applicant",
+    "page_idx": 0,
+    "bbox": [
+      114.8,
+      574.0,
+      901.9,
+      590.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "I hereby certify that the following information is true and complete, and agree that any misrepresentation or deliberate omission of a material fact on this form may result in the withdrawal of an offer of a place or scholarship, or may result in the termination of any such offer at a future date. I hereby grant the TaiwanICDF permission to share information contained in my Medical Examination Form with relevant authorities.",
+    "page_idx": 0,
+    "bbox": [
+      114.2,
+      606.1,
+      919.6,
+      705.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "X :selected:",
+    "page_idx": 0,
+    "bbox": [
+      114.9,
+      726.3,
+      129.7,
+      739.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Steve Zhang Kangyang",
+    "page_idx": 0,
+    "bbox": [
+      159.5,
+      708.5,
+      563.5,
+      745.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "01/05/2026",
+    "page_idx": 0,
+    "bbox": [
+      634.7,
+      709.4,
+      856.1,
+      744.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Signature",
+    "page_idx": 0,
+    "bbox": [
+      161.7,
+      742.5,
+      241.6,
+      757.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Date",
+    "page_idx": 0,
+    "bbox": [
+      725.8,
+      742.6,
+      766.9,
+      756.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 2: Medical Examination - to be completed by certified physician",
+    "page_idx": 0,
+    "bbox": [
+      114.8,
+      777.0,
+      775.4,
+      793.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "The university reserves the right to require the applicant to undergo a future medical examination after he/she arrives in the Republic of China (Taiwan).",
+    "page_idx": 0,
+    "bbox": [
+      114.3,
+      808.6,
+      872.8,
+      845.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "P.1",
+    "page_idx": 0,
+    "bbox": [
+      894.9,
+      957.4,
+      918.6,
+      968.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 1: HEALTH DECLARATION",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      93.8,
+      430.8,
+      108.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Nationality:",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      126.2,
+      185.2,
+      142.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Canadian",
+    "page_idx": 1,
+    "bbox": [
+      208.3,
+      116.8,
+      355.7,
+      141.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "ID: IND-1234",
+    "page_idx": 1,
+    "bbox": [
+      570.7,
+      119.0,
+      734.1,
+      142.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Name: (Last)",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      153.5,
+      190.2,
+      169.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Zhang Kangyang",
+    "page_idx": 1,
+    "bbox": [
+      217.7,
+      146.5,
+      486.0,
+      174.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "(First) Steven",
+    "page_idx": 1,
+    "bbox": [
+      146.1,
+      174.8,
+      319.0,
+      197.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "(M. Initial)",
+    "page_idx": 1,
+    "bbox": [
+      145.4,
+      208.1,
+      235.5,
+      223.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Gender: Male :selected: Female :unselected:",
+    "page_idx": 1,
+    "bbox": [
+      74.6,
+      234.7,
+      310.5,
+      249.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Date of Birth: 1998 Y/ 01 M/ 01 D/",
+    "page_idx": 1,
+    "bbox": [
+      355.9,
+      232.1,
+      756.9,
+      248.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Al",
+    "page_idx": 1,
+    "bbox": [
+      875.0,
+      219.7,
+      882.5,
+      224.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Health History:",
+    "page_idx": 1,
+    "bbox": [
+      73.8,
+      265.0,
+      218.4,
+      281.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Have you ever suffered any of the following conditions? Please mark X in appropriate box",
+    "page_idx": 1,
+    "bbox": [
+      74.3,
+      281.3,
+      873.8,
+      297.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Please State (if any) Other illnesses",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      504.4,
+      261.3,
+      536.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Operation / Surgical",
+    "page_idx": 1,
+    "bbox": [
+      74.7,
+      554.2,
+      253.8,
+      570.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Allergic to",
+    "page_idx": 1,
+    "bbox": [
+      74.0,
+      587.2,
+      164.6,
+      602.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Family Medical History (if any)",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      630.2,
+      365.4,
+      648.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Father:",
+    "page_idx": 1,
+    "bbox": [
+      74.6,
+      650.2,
+      138.2,
+      664.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Mother:",
+    "page_idx": 1,
+    "bbox": [
+      500.6,
+      650.2,
+      570.7,
+      664.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Past Year Life: Please select",
+    "page_idx": 1,
+    "bbox": [
+      74.3,
+      680.2,
+      341.0,
+      695.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "1. Sleep: :selected: 7~8 hours every day :unselected: Under 7~ 8 hours :unselected: Often suffer from insomnia 2. If thatfis basic to exercise each time for 30 minutes and 3 times every week at least, did you achieve? :unselected: No :selected: Yes",
+    "page_idx": 1,
+    "bbox": [
+      73.7,
+      695.5,
+      911.2,
+      747.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "4. Do you often feel anxious and worried? :selected: Few or not :unselected: Sometimes :unselected: Often",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      750.7,
+      730.0,
+      766.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "5. Do you often feel the chest is stuffy? :selected: No :unselected: Sometimes :unselected: Yes",
+    "page_idx": 1,
+    "bbox": [
+      74.2,
+      769.6,
+      626.6,
+      785.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "6. Stomach-ache? :selected: No",
+    "page_idx": 1,
+    "bbox": [
+      74.6,
+      788.3,
+      273.4,
+      802.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": ":unselected: Sometimes :unselected: Often ;. Headache? :selected: No",
+    "page_idx": 1,
+    "bbox": [
+      283.7,
+      788.5,
+      628.0,
+      802.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": ":unselected: Sometimes :unselected: Often",
+    "page_idx": 1,
+    "bbox": [
+      638.0,
+      788.8,
+      824.4,
+      802.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "7. The menarche (girl only): (1) The age of the menarche: years-old",
+    "page_idx": 1,
+    "bbox": [
+      74.7,
+      806.0,
+      681.7,
+      821.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "(2) Is menstrual cycle regular? :unselected: No :unselected: Yes(Date of partition day)",
+    "page_idx": 1,
+    "bbox": [
+      75.0,
+      822.6,
+      676.8,
+      838.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "(3) Do you ever have menstrual cramp phenomenon :unselected: No :unselected: Yes",
+    "page_idx": 1,
+    "bbox": [
+      75.4,
+      841.8,
+      610.6,
+      857.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "P.2",
+    "page_idx": 1,
+    "bbox": [
+      894.8,
+      957.2,
+      919.3,
+      968.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PART 2: MEDICAL EXAMINATION",
+    "page_idx": 2,
+    "bbox": [
+      74.1,
+      93.6,
+      435.1,
+      108.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Physician must complete all questions and give additional comment where necessary. Kindly note that physician is responsible for the information, suggestions and recommendation regarding the applicant's health given in this form. Certified original lab data need to be attached as reference.",
+    "page_idx": 2,
+    "bbox": [
+      73.9,
+      122.6,
+      919.6,
+      203.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Name of Applicant: Steven Zhang Kangyana 1995 Y/ oMODI",
+    "page_idx": 2,
+    "bbox": [
+      73.8,
+      229.2,
+      897.7,
+      269.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Date of Birth",
+    "page_idx": 2,
+    "bbox": [
+      759.8,
+      229.6,
+      882.1,
+      244.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Physical Examination:",
+    "page_idx": 2,
+    "bbox": [
+      74.3,
+      304.9,
+      288.7,
+      321.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "HEIGHT : 180 cm",
+    "page_idx": 2,
+    "bbox": [
+      74.1,
+      319.7,
+      477.9,
+      343.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "WEIGHT :",
+    "page_idx": 2,
+    "bbox": [
+      545.6,
+      325.0,
+      638.5,
+      339.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "70 kg",
+    "page_idx": 2,
+    "bbox": [
+      746.5,
+      319.4,
+      881.9,
+      343.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "BLOOD PRESSURE : 120/80 mmHg",
+    "page_idx": 2,
+    "bbox": [
+      74.0,
+      344.5,
+      483.1,
+      364.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "PULSE RATE :",
+    "page_idx": 2,
+    "bbox": [
+      544.6,
+      346.3,
+      678.5,
+      360.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "20",
+    "page_idx": 2,
+    "bbox": [
+      743.9,
+      345.3,
+      778.2,
+      362.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "/min",
+    "page_idx": 2,
+    "bbox": [
+      860.5,
+      348.9,
+      896.4,
+      362.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "VISUAL ACUITY :",
+    "page_idx": 2,
+    "bbox": [
+      74.3,
+      378.3,
+      242.8,
+      392.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "R 5,0 L 5,0",
+    "page_idx": 2,
+    "bbox": [
+      308.6,
+      373.6,
+      473.5,
+      393.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "EYES : :selected: normal :unselected: color anomalous :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      75.0,
+      409.5,
+      444.9,
+      427.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "EAR/NOSE/THROAT : :selected: normal :unselected: auditory meatus abnormal :unselected: cleft lip and palate :unselected: impending infarction :unselected: allergic rhinitis :unselected: chronic rhinitis :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.8,
+      440.7,
+      798.5,
+      483.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NECK : :selected: normal :unselected: wryneck :unselected: goiter :unselected: the lymphoid swelling of gland is big :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.4,
+      495.7,
+      764.9,
+      512.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "CHEST : :selected: normal :unselected: thoracic anomaly :unselected: core noise :unselected: arrhythmias :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.9,
+      527.5,
+      698.7,
+      545.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "CHEST X RAY : :selected: normal :unselected: advertise for like the tuberculosis :unselected: pleura effusion :unselected: thoracic abnormality :unselected: tuberculosis calcify :unselected: the spinal column side is curved up :unselected: cardiac hypertrophy :unselected: bronchiectasis :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.3,
+      559.2,
+      906.7,
+      621.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "ABDOMEN : :selected: normal :unselected: hepatomegaly :unselected: splenomegaly :unselected: hernia :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.2,
+      634.3,
+      697.1,
+      652.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "SPINAL COLUMN ARMS AND LEGS : :selected: normal :unselected: scoliosis :unselected: frog limb :unselected: articulation deformity :unselected: edema :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      73.9,
+      666.0,
+      895.0,
+      705.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "SKIN : :selected: normal :unselected: wart :unselected: purple plague :unselected: scabies :unselected: a dermatitis :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      74.5,
+      720.4,
+      699.9,
+      737.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "MOUTH CAVITY : :selected: normal :unselected: oral hygiene is poor :unselected: calculus :unselected: gingivitis :unselected: milk tooth :unselected: other",
+    "page_idx": 2,
+    "bbox": [
+      73.8,
+      751.3,
+      855.4,
+      770.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Urine Test:",
+    "page_idx": 2,
+    "bbox": [
+      74.1,
+      797.1,
+      181.2,
+      811.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NAD - WBC - RBC - PROTEIN - CLUCOSE",
+    "page_idx": 2,
+    "bbox": [
+      74.9,
+      828.4,
+      840.5,
+      843.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "-",
+    "page_idx": 2,
+    "bbox": [
+      862.1,
+      826.8,
+      897.9,
+      839.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Hepatitis B Test:",
+    "page_idx": 2,
+    "bbox": [
+      74.2,
+      861.1,
+      234.8,
+      875.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "POSITIVE",
+    "page_idx": 2,
+    "bbox": [
+      74.8,
+      893.5,
+      173.8,
+      907.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NEGATIVE :selected: 1",
+    "page_idx": 2,
+    "bbox": [
+      361.9,
+      871.1,
+      589.1,
+      918.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "P.3",
+    "page_idx": 2,
+    "bbox": [
+      895.0,
+      957.5,
+      918.7,
+      968.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Serological Test for Syphilis:",
+    "page_idx": 3,
+    "bbox": [
+      73.5,
+      58.8,
+      353.7,
+      74.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NEGATIVE :selected: POSITIVE",
+    "page_idx": 3,
+    "bbox": [
+      72.9,
+      53.0,
+      573.6,
+      114.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "HIV Test:",
+    "page_idx": 3,
+    "bbox": [
+      73.6,
+      123.4,
+      163.3,
+      137.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "POSITIVE",
+    "page_idx": 3,
+    "bbox": [
+      74.6,
+      155.7,
+      173.7,
+      169.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NEGATIVE",
+    "page_idx": 3,
+    "bbox": [
+      364.3,
+      155.5,
+      470.3,
+      169.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 3,
+    "bbox": [
+      535.4,
+      141.9,
+      567.5,
+      172.1
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "THE ORIENTATION INSTITUTION WILL REQUIRE A FURTHER HIV TEST AFTER HE/SHE ARRIVES IN ROC (TAIWAN). THE ONE WITH POSITIVE TEST RESULT WILL BE REJECTED AND SENT BACK HOME IMMEDIATELY.",
+    "page_idx": 3,
+    "bbox": [
+      73.6,
+      178.7,
+      919.3,
+      214.3
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Pregnancy Test:",
+    "page_idx": 3,
+    "bbox": [
+      74.0,
+      230.6,
+      233.2,
+      245.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "POSITIVE",
+    "page_idx": 3,
+    "bbox": [
+      74.7,
+      262.5,
+      173.7,
+      277.0
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": ":selected:",
+    "page_idx": 3,
+    "bbox": [
+      541.6,
+      245.5,
+      582.3,
+      274.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "NEGATIVE",
+    "page_idx": 3,
+    "bbox": [
+      364.3,
+      262.4,
+      470.2,
+      276.8
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Is the applicant now under treatment for any physical or emotional condition? No",
+    "page_idx": 3,
+    "bbox": [
+      74.4,
+      320.3,
+      760.7,
+      358.4
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Do you have any recommendations for the health care of this applicant?",
+    "page_idx": 3,
+    "bbox": [
+      74.5,
+      369.8,
+      716.6,
+      386.2
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "No",
+    "page_idx": 3,
+    "bbox": [
+      135.8,
+      388.0,
+      171.2,
+      408.6
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "By history and physical examination, is this applicant a carrier of any communicable disease? No",
+    "page_idx": 3,
+    "bbox": [
+      74.6,
+      419.7,
+      792.6,
+      459.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "CERTIFICATION BY THE MEDICAL OFFICER:",
+    "page_idx": 3,
+    "bbox": [
+      189.1,
+      497.6,
+      765.3,
+      517.5
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "I certify that I have examined the above applicant and in my opinion: :selected: The applicant is medically fit to undertake a program in Taiwan :unselected: The applicant suffers mental or physical defects and is NOT in good health",
+    "page_idx": 3,
+    "bbox": [
+      107.8,
+      530.3,
+      815.0,
+      600.7
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "Not valid if without the hospital or clinic's seal",
+    "page_idx": 3,
+    "bbox": [
+      91.0,
+      777.2,
+      536.6,
+      792.9
+    ],
+    "type": "paragraph"
+  },
+  {
+    "text": "P.4",
+    "page_idx": 3,
+    "bbox": [
+      894.6,
+      957.4,
+      919.9,
+      968.3
+    ],
+    "type": "paragraph"
+  }
+]

@@ -6,8 +6,6 @@ __pycache__/
 .Python
 
 # Generated / local runtime
-parsed/
-uploads/
 *.log
 debug-*.log
 
